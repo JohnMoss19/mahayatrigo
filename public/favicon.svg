@@ -6,37 +6,39 @@
     </linearGradient>
   </defs>
 
-  {/* Sun Rays - Thicker and White for clarity */}
-  <g stroke="white" stroke-width="3" stroke-linecap="round">
-    <line x1="50" y1="30" x2="50" y2="10" />
-    <line x1="70" y1="35" x2="85" y2="20" />
-    <line x1="85" y1="55" x2="95" y2="55" />
-    <line x1="30" y1="35" x2="15" y2="20" />
-    <line x1="15" y1="55" x2="5" y2="55" />
+  {/* Sun - Large and Vibrant */}
+  <circle cx="50" cy="55" r="35" fill="url(#sunGradient)" />
+
+  {/* Sun Rays - Golden and Bold (Moved after sun for visibility) */}
+  <g stroke="#d4af37" stroke-width="3.5" stroke-linecap="round">
+    <line x1="50" y1="25" x2="50" y2="5" />
+    <line x1="70" y1="30" x2="85" y2="15" />
+    <line x1="85" y1="50" x2="98" y2="50" />
+    <line x1="75" y1="75" x2="90" y2="85" />
+    <line x1="30" y1="30" x2="15" y2="15" />
+    <line x1="15" y1="50" x2="2" y2="50" />
+    <line x1="25" y1="75" x2="10" y2="85" />
   </g>
   
-  {/* Sun - Larger to fill space */}
-  <circle cx="50" cy="55" r="32" fill="url(#sunGradient)" />
-  
-  {/* Trishul - Bold and White */}
+  {/* Trishul - Golden and Bold (Matches brand logo colors) */}
   <path 
-    d="M42 25C42 18 58 18 58 25M50 15V35M45 20V28M55 20V28" 
-    stroke="white" 
-    stroke-width="3.5" 
+    d="M42 25C42 16 58 16 58 25M50 12V32M45 18V26M55 18V26" 
+    stroke="#d4af37" 
+    stroke-width="4" 
     stroke-linecap="round" 
   />
   
-  {/* Stylized M - White, Bold, and Filling the width */}
+  {/* Stylized M - White and Bold (As requested) */}
   <path 
-    d="M12 90V38L50 75L88 38V90" 
+    d="M10 90V40L50 78L90 40V90" 
     stroke="white" 
     stroke-width="14" 
     stroke-linecap="round" 
     stroke-linejoin="round" 
   />
   
-  {/* Airplane - White and larger */}
-  <g transform="translate(85, 45) rotate(-25)">
+  {/* Airplane - White */}
+  <g transform="translate(88, 55) rotate(-25)">
     <path 
       d="M0 0L15 -4L13 -10L15 -4L22 -4L15 0L15 6L10 0L0 0Z" 
       fill="white" 
