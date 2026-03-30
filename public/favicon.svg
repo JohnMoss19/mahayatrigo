@@ -1,59 +1,45 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="sunGradient" x1="50" y1="30" x2="50" y2="70" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sunGradient" x1="50" y1="20" x2="50" y2="80" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#ff8c00" />
       <stop offset="100%" stop-color="#ffd700" />
     </linearGradient>
   </defs>
 
-  {/* White Background */}
-  <circle cx="50" cy="50" r="50" fill="white" />
-
-  {/* Sun Rays */}
-  <g stroke="#d4af37" stroke-width="2" stroke-linecap="round">
-    <line x1="50" y1="35" x2="50" y2="25" />
-    <line x1="62" y1="38" x2="68" y2="30" />
-    <line x1="72" y1="48" x2="82" y2="45" />
-    <line x1="75" y1="62" x2="85" y2="65" />
-    <line x1="38" y1="38" x2="32" y2="30" />
-    <line x1="28" y1="48" x2="18" y2="45" />
-    <line x1="25" y1="62" x2="15" y2="65" />
+  {/* Sun Rays - Thicker and White for clarity */}
+  <g stroke="white" stroke-width="3" stroke-linecap="round">
+    <line x1="50" y1="30" x2="50" y2="10" />
+    <line x1="70" y1="35" x2="85" y2="20" />
+    <line x1="85" y1="55" x2="95" y2="55" />
+    <line x1="30" y1="35" x2="15" y2="20" />
+    <line x1="15" y1="55" x2="5" y2="55" />
   </g>
   
-  {/* Sun */}
-  <circle cx="50" cy="55" r="22" fill="url(#sunGradient)" />
+  {/* Sun - Larger to fill space */}
+  <circle cx="50" cy="55" r="32" fill="url(#sunGradient)" />
   
-  {/* Trishul */}
+  {/* Trishul - Bold and White */}
   <path 
-    d="M44 28C44 22 56 22 56 28M50 20V35M46 24V30M54 24V30" 
-    stroke="#d4af37" 
-    stroke-width="2.5" 
+    d="M42 25C42 18 58 18 58 25M50 15V35M45 20V28M55 20V28" 
+    stroke="white" 
+    stroke-width="3.5" 
     stroke-linecap="round" 
   />
   
-  {/* Swoosh / Trail */}
+  {/* Stylized M - White, Bold, and Filling the width */}
   <path 
-    d="M25 75C25 85 60 85 85 65" 
-    stroke="#004d4d" 
-    stroke-width="4" 
-    stroke-linecap="round" 
-    fill="none"
-  />
-  
-  {/* Stylized M - Green as requested */}
-  <path 
-    d="M28 80V45L50 68L72 45V80" 
-    stroke="#004d4d" 
-    stroke-width="10" 
+    d="M12 90V38L50 75L88 38V90" 
+    stroke="white" 
+    stroke-width="14" 
     stroke-linecap="round" 
     stroke-linejoin="round" 
   />
   
-  {/* Airplane */}
-  <g transform="translate(82, 62) rotate(-25)">
+  {/* Airplane - White and larger */}
+  <g transform="translate(85, 45) rotate(-25)">
     <path 
-      d="M0 0L12 -3L10 -8L12 -3L18 -3L12 0L12 5L8 0L0 0Z" 
-      fill="#004d4d" 
+      d="M0 0L15 -4L13 -10L15 -4L22 -4L15 0L15 6L10 0L0 0Z" 
+      fill="white" 
     />
   </g>
 </svg>
