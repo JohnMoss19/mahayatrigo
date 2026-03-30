@@ -1,5 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,7 +14,7 @@ export default function App() {
   // const [showAuth, setShowAuth] = useState(false);
 
   return (
-    <Router>
+    <>
       <ScrollToTop />
       {/* Dynamic Animated Background */}
       <div className="fixed inset-0 -z-50 bg-gradient-to-br from-bg via-accent/10 to-bg animate-gradient">
@@ -37,6 +37,6 @@ export default function App() {
         
         {/* {showAuth && <Auth onClose={() => setShowAuth(false)} />} */}
       </div>
-    </Router>
+    </>
   );
 }

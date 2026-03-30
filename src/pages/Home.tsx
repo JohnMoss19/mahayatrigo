@@ -1,6 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import DestinationsCarousel from '../components/DestinationsCarousel';
+import DestinationsGrid from '../components/DestinationsGrid';
 import AboutSection from '../components/AboutSection';
 import PopularTours from '../components/PopularTours';
 import HotelPartners from '../components/HotelPartners';
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <DestinationsCarousel />
+      <DestinationsGrid />
       <AboutSection />
       <PopularTours />
       <PackageTabs />
