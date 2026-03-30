@@ -6,33 +6,53 @@
     </linearGradient>
   </defs>
 
-  {/* Background for visibility */}
-  <circle cx="50" cy="50" r="48" fill="#004d4d" />
+  {/* Background Circle for visibility of white elements */}
+  <circle cx="50" cy="50" r="50" fill="#004d4d" />
 
+  {/* Sun Rays */}
+  <g stroke="#d4af37" stroke-width="2" stroke-linecap="round">
+    <line x1="50" y1="35" x2="50" y2="25" />
+    <line x1="62" y1="38" x2="68" y2="30" />
+    <line x1="72" y1="48" x2="82" y2="45" />
+    <line x1="75" y1="62" x2="85" y2="65" />
+    <line x1="38" y1="38" x2="32" y2="30" />
+    <line x1="28" y1="48" x2="18" y2="45" />
+    <line x1="25" y1="62" x2="15" y2="65" />
+  </g>
+  
   {/* Sun */}
-  <circle cx="50" cy="45" r="25" fill="url(#sunGradient)" />
+  <circle cx="50" cy="55" r="22" fill="url(#sunGradient)" />
   
   {/* Trishul */}
   <path 
-    d="M44 22C44 16 56 16 56 22M50 14V29M46 18V24M54 18V24" 
-    stroke="#ffd700" 
+    d="M44 28C44 22 56 22 56 28M50 20V35M46 24V30M54 24V30" 
+    stroke="#d4af37" 
     stroke-width="2.5" 
     stroke-linecap="round" 
   />
   
-  {/* Stylized M - Now White and Larger */}
+  {/* Swoosh / Trail */}
   <path 
-    d="M20 85V40L50 70L80 40V85" 
+    d="M25 75C25 85 60 85 85 65" 
     stroke="white" 
-    stroke-width="12" 
+    stroke-width="4" 
+    stroke-linecap="round" 
+    fill="none"
+  />
+  
+  {/* Stylized M - White as requested */}
+  <path 
+    d="M28 80V45L50 68L72 45V80" 
+    stroke="white" 
+    stroke-width="10" 
     stroke-linecap="round" 
     stroke-linejoin="round" 
   />
   
-  {/* Airplane - White for contrast */}
-  <g transform="translate(80, 40) rotate(-25)">
+  {/* Airplane */}
+  <g transform="translate(82, 62) rotate(-25)">
     <path 
-      d="M0 0L15 -4L13 -10L15 -4L22 -4L15 0L15 6L10 0L0 0Z" 
+      d="M0 0L12 -3L10 -8L12 -3L18 -3L12 0L12 5L8 0L0 0Z" 
       fill="white" 
     />
   </g>
