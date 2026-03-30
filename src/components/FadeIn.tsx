@@ -9,11 +9,13 @@ interface FadeInProps extends Omit<HTMLMotionProps<"div">, "direction"> {
 }
 
 export default function FadeIn({ children, delay = 0, direction = 'up', className = '', ...props }: FadeInProps) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   const directions = {
-    up: { y: 20, x: 0 },
-    down: { y: -20, x: 0 },
-    left: { x: 20, y: 0 },
-    right: { x: -20, y: 0 },
+    up: { y: isMobile ? 0 : 20, x: 0 },
+    down: { y: isMobile ? 0 : -20, x: 0 },
+    left: { x: isMobile ? 0 : 20, y: 0 },
+    right: { x: isMobile ? 0 : -20, y: 0 },
   };
 
   return (
@@ -21,8 +23,8 @@ export default function FadeIn({ children, delay = 0, direction = 'up', classNam
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      style={{ willChange: 'transform, opacity' }}
+      transition={{ duration: isMobile ? 0.4 : 0.6, delay: isMobile ? delay * 0.5 : delay, ease: "easeOut" }}
+      style={{ willChange: 'opacity, transform' }}
       className={className}
       {...props}
     >

@@ -131,7 +131,7 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
         
         {/* Floating Badge */}
-        <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-xl flex items-center gap-2" aria-label="Top Rated Package">
+        <div className="absolute top-6 right-6 bg-white/95 md:backdrop-blur-md px-4 py-2 rounded-full shadow-xl flex items-center gap-2" aria-label="Top Rated Package">
           <Star size={14} aria-hidden="true" className="text-accent fill-accent" />
           <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Top Rated</span>
         </div>

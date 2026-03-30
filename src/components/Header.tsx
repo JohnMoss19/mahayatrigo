@@ -55,14 +55,14 @@ export default function Header({ onAuthClick }: HeaderProps) {
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-3 group" aria-label="MAHA YatriGo Home">
             <div className="relative">
-              <Logo isScrolled={!isLightText} className="h-10 w-10 md:h-12 md:w-12 transition-transform duration-500 group-hover:rotate-[360deg]" />
+              <Logo isScrolled={!isLightText} className="h-12 w-12 md:h-16 md:w-16 transition-transform duration-500 group-hover:rotate-[360deg]" />
               <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col">
-              <span className={`text-xl md:text-2xl font-serif font-bold tracking-tight leading-none transition-colors duration-500 ${!isLightText ? 'text-primary' : 'text-white'}`}>
+              <span className={`text-2xl md:text-3xl font-serif font-bold tracking-tight leading-none transition-colors duration-500 ${!isLightText ? 'text-primary' : 'text-white'}`}>
                 MAHA <span className="text-accent">YatriGo</span>
               </span>
-              <span className={`text-[8px] md:text-[9px] uppercase tracking-[0.2em] font-bold mt-1 transition-colors duration-500 ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
+              <span className={`text-[10px] md:text-[12px] uppercase tracking-[0.2em] font-bold mt-1 transition-colors duration-500 ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
                 Journeys of Faith & Wonder
               </span>
             </div>
@@ -143,7 +143,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-primary/20 backdrop-blur-md z-[60] lg:hidden"
+              className="fixed inset-0 bg-primary/40 z-[60] lg:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
@@ -153,9 +153,9 @@ export default function Header({ onAuthClick }: HeaderProps) {
               className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl z-[70] flex flex-col lg:hidden"
             >
               <div className="p-8 flex items-center justify-between border-b border-gray-50">
-                <Link to="/" className="flex items-center gap-2" aria-label="MAHA YatriGo Home">
-                  <Logo isScrolled={true} className="h-8 w-8" />
-                  <span className="text-xl font-serif font-bold text-primary">MAHA <span className="text-accent">YatriGo</span></span>
+                <Link to="/" className="flex items-center gap-3" aria-label="MAHA YatriGo Home">
+                  <Logo isScrolled={true} className="h-12 w-12" />
+                  <span className="text-2xl font-serif font-bold text-primary">MAHA <span className="text-accent">YatriGo</span></span>
                 </Link>
                 <button 
                   onClick={() => setIsMenuOpen(false)}

@@ -35,12 +35,22 @@ export default function Hero() {
         >
           {/* Background Image with Zoom Effect */}
           <motion.div 
-            initial={{ scale: 1.2 }}
+            initial={{ scale: 1 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 10, ease: "easeOut" }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${HERO_SLIDES[current].image})`, willChange: 'transform' }}
+            style={{ 
+              backgroundImage: `url(${HERO_SLIDES[current].image})`,
+              willChange: 'transform'
+            }}
           >
+            {/* Desktop Only Zoom */}
+            <motion.div
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 10, ease: "easeOut" }}
+              className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${HERO_SLIDES[current].image})` }}
+            />
             {/* Layered Overlays for Depth */}
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
@@ -64,7 +74,7 @@ export default function Hero() {
                 initial={{ y: 40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
-                className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold mb-8 leading-[0.9] tracking-tight"
+                className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold mb-4 leading-[0.9] tracking-tight"
               >
                 {HERO_SLIDES[current].title.split(' ').map((word, i) => (
                   <span key={i} className="inline-block mr-4 last:mr-0">
@@ -72,6 +82,15 @@ export default function Hero() {
                   </span>
                 ))}
               </motion.h1>
+
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
+                className="text-accent font-cursive text-2xl md:text-3xl mb-6"
+              >
+                Tailored experiences for every traveler.
+              </motion.div>
 
               <motion.p
                 initial={{ y: 30, opacity: 0 }}
