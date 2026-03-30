@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Dancing+Script:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-cursive: "Dancing Script", cursive;
+  --color-bg: #fdfcf9; /* Warm off-white */
+  --color-primary: #004d4d; /* Deep Teal */
+  --color-accent: #d97706; /* Golden Orange */
+  --color-gold: #ffd700;
+  --color-text: #1a2e2e; /* Darker Teal-Gray */
+  --animate-gradient: animatedgradient 15s ease infinite alternate;
+  @keyframes animatedgradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    @apply font-sans text-text bg-bg antialiased selection:bg-accent/20 selection:text-primary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent;
+  }
+  .text-gradient-light {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-white to-accent;
+  }
+  .text-gradient-animated {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient bg-[length:200%_auto];
+  }
+  .text-gradient-animated-light {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-white animate-gradient bg-[length:200%_auto];
+  }
+  .bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23004d4d' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent hover:bg-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-500 flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95;
+  }
+  .btn-outline {
+    @apply border border-primary/30 text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-500 active:scale-95;
+  }
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+  .section-title {
+    @apply text-4xl md:text-6xl font-serif font-bold text-primary mb-6 leading-tight;
+  }
+  .section-subtitle {
+    @apply font-cursive text-3xl md:text-4xl text-accent mb-2 block;
+  }
+}
