@@ -44,7 +44,7 @@ export default function Footer() {
                   key={idx} 
                   href={social.href} 
                   aria-label={`Follow us on ${social.label}`}
-                  className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-accent hover:text-white hover:-translate-y-2 transition-all duration-500 border border-white/10"
+                  className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center md:hover:bg-accent md:hover:text-white md:hover:-translate-y-2 transition-all duration-500 border border-white/10"
                 >
                   <social.icon size={20} aria-hidden="true" />
                 </a>
@@ -71,14 +71,14 @@ export default function Footer() {
                       to={link.href}
                       className="text-gray-400 hover:text-accent flex items-center gap-2 transition-all duration-500 group text-sm font-bold uppercase tracking-widest"
                     >
-                      <ChevronRight size={14} className="transition-transform group-hover:translate-x-1 text-accent/50" /> {link.name}
+                      <ChevronRight size={14} className="transition-transform md:group-hover:translate-x-1 text-accent/50" /> {link.name}
                     </Link>
                   ) : (
                     <a 
                       href={link.href} 
                       className="text-gray-400 hover:text-accent flex items-center gap-2 transition-all duration-500 group text-sm font-bold uppercase tracking-widest"
                     >
-                      <ChevronRight size={14} className="transition-transform group-hover:translate-x-1 text-accent/50" /> {link.name}
+                      <ChevronRight size={14} className="transition-transform md:group-hover:translate-x-1 text-accent/50" /> {link.name}
                     </a>
                   )}
                 </li>
@@ -126,19 +126,19 @@ export default function Footer() {
               <span className="w-8 h-px bg-accent"></span> Partnership
             </h4>
             {strategicPartner && (
-              <div className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-accent/30 transition-all duration-700 group overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="relative p-8 rounded-3xl bg-white/5 border border-white/10 md:hover:border-accent/30 transition-all duration-700 group overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-20 md:group-hover:opacity-100 transition-opacity duration-700">
                   <ArrowUpRight size={20} className="text-accent" />
                 </div>
                 <p className="text-gray-400 text-xs leading-relaxed mb-8 font-medium">
                   In strategic partnership with <strong className="text-white">{strategicPartner.name}</strong>, we provide world-class travel experiences.
                 </p>
                 <div className="flex items-center gap-5">
-                  <div className="p-4 rounded-2xl bg-white/10 group-hover:bg-white transition-all duration-1000">
+                  <div className="p-4 rounded-2xl bg-white/10 md:group-hover:bg-white transition-all duration-1000">
                     <img 
                       src={strategicPartner.logo} 
                       alt={strategicPartner.name}
-                      className="h-8 object-contain grayscale group-hover:grayscale-0 transition-all duration-1000"
+                      className="h-8 object-contain grayscale md:group-hover:grayscale-0 transition-all duration-1000"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       decoding="async"

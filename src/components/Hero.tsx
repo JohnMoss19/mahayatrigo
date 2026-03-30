@@ -30,7 +30,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           {/* Background Image with Zoom Effect */}
@@ -61,9 +61,9 @@ export default function Hero() {
           <div className="relative h-full container mx-auto px-6 md:px-12 flex flex-col justify-center items-start text-white z-10">
             <div className="max-w-4xl">
               <motion.div
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
+                transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 md:backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6">
                   Experience the Extraordinary
@@ -71,9 +71,9 @@ export default function Hero() {
               </motion.div>
 
               <motion.h1
-                initial={{ y: 40, opacity: 0 }}
+                initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
+                transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
                 className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold mb-4 leading-[0.9] tracking-tight"
               >
                 {HERO_SLIDES[current].title.split(' ').map((word, i) => (
@@ -93,9 +93,9 @@ export default function Hero() {
               </motion.div>
 
               <motion.p
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
+                transition={{ delay: 0.8, duration: 0.8, ease: "easeOut" }}
                 className="text-lg md:text-2xl font-light mb-12 text-gray-200/80 max-w-2xl leading-relaxed"
               >
                 {HERO_SLIDES[current].subtitle}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="sunGradient" x1="50" y1="30" x2="50" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ff8c00" />
+      <stop offset="100%" stop-color="#ffd700" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="55" r="40" fill="url(#sunGradient)" />
+  <path d="M44 28C44 22 56 22 56 28M50 20V35M46 24V30M54 24V30" stroke="#d4af37" stroke-width="4" stroke-linecap="round" />
+  <path d="M28 80V45L50 68L72 45V80" stroke="#004d4d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

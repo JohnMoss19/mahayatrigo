@@ -33,7 +33,7 @@ export default function PopularTours() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
             {tours.map((tour, index) => (
               <FadeIn key={tour.id} delay={index * 0.1}>
-                <div className="glass-card rounded-2xl overflow-hidden hover:shadow-2xl hover:border-accent/30 transition-all duration-500 group h-full flex flex-col hover:-translate-y-2 relative">
+                <div className="glass-card rounded-2xl overflow-hidden md:hover:shadow-2xl md:hover:border-accent/30 transition-all duration-500 group h-full flex flex-col md:hover:-translate-y-2 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true" />
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img 

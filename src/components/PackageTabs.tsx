@@ -117,13 +117,13 @@ export default function PackageTabs() {
 
 const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
   return (
-    <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] transition-all duration-700 hover:-translate-y-3 flex flex-col h-full border border-gray-100/50">
+    <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] transition-all duration-700 md:hover:-translate-y-3 flex flex-col h-full border border-gray-100/50">
       {/* Image Section */}
       <div className="relative h-72 overflow-hidden">
         <img 
           src={pkg.image} 
           alt={pkg.name} 
-          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-1000 md:group-hover:scale-110"
           referrerPolicy="no-referrer"
           loading="lazy"
           decoding="async"

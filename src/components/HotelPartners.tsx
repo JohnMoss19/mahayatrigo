@@ -33,15 +33,15 @@ export default function HotelPartners() {
               <img 
                 src={strategicPartner.logo} 
                 alt={strategicPartner.name}
-                className="h-16 md:h-24 object-contain grayscale group-hover:grayscale-0 transition-all duration-1000 scale-95 group-hover:scale-105"
+                className="h-16 md:h-24 object-contain grayscale md:group-hover:grayscale-0 transition-all duration-1000 scale-95 md:group-hover:scale-105"
                 referrerPolicy="no-referrer"
                 loading="lazy"
                 decoding="async"
               />
               
               <div className="mt-6 flex flex-col items-center">
-                <div className="h-px w-12 bg-accent/30 mb-4 group-hover:w-20 transition-all duration-700" aria-hidden="true" />
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] group-hover:text-primary transition-colors duration-500">
+                <div className="h-px w-12 bg-accent/30 mb-4 md:group-hover:w-20 transition-all duration-700" aria-hidden="true" />
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] md:group-hover:text-primary transition-colors duration-500">
                   Official Partner: {strategicPartner.name}
                 </span>
               </div>

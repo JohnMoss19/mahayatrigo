@@ -17,7 +17,7 @@ export default function AboutSection() {
                 <img 
                   src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80" 
                   alt="Taj Mahal" 
-                  className="w-full aspect-[4/5] object-cover hover:scale-105 transition-transform duration-1000"
+                  className="w-full aspect-[4/5] object-cover md:hover:scale-105 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                   decoding="async"
@@ -28,7 +28,7 @@ export default function AboutSection() {
                 <img 
                   src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" 
                   alt="Goa Beach" 
-                  className="w-full aspect-square object-cover hover:scale-110 transition-transform duration-1000"
+                  className="w-full aspect-square object-cover md:hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                   decoding="async"
@@ -37,7 +37,7 @@ export default function AboutSection() {
 
               {/* Floating Badge */}
               <FadeIn delay={0.8} className="absolute -top-6 -left-6 z-30 hidden xl:block" aria-label="12 plus years of excellence">
-                <div className="w-28 h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40 animate-pulse-slow">
+                <div className="w-28 h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40 animate-pulse">
                   <span className="text-xl font-serif font-bold">12+</span>
                   <span className="text-[7px] uppercase tracking-widest font-bold">Years of</span>
                   <span className="text-[7px] uppercase tracking-widest font-bold">Excellence</span>
@@ -111,8 +111,8 @@ export default function AboutSection() {
               delay={index * 0.1}
               className="relative group"
             >
-              <div className="flex flex-col items-center text-center">
-                <div className="text-8xl md:text-[11rem] font-serif font-bold text-primary/10 group-hover:text-accent/20 transition-colors duration-700 absolute -top-20 left-1/2 -translate-x-1/2 select-none">
+                <div className="flex flex-col items-center text-center">
+                <div className="text-8xl md:text-[11rem] font-serif font-bold text-primary/10 md:group-hover:text-accent/20 transition-colors duration-700 absolute -top-20 left-1/2 -translate-x-1/2 select-none">
                   0{index + 1}
                 </div>
                 <div className="relative z-10 pt-10">
@@ -120,7 +120,7 @@ export default function AboutSection() {
                     {stat.value}
                     <span className="text-accent text-5xl">{stat.suffix}</span>
                   </div>
-                  <div className="h-2.5 w-24 bg-accent/30 rounded-full mb-10 mx-auto group-hover:w-40 transition-all duration-700" />
+                  <div className="h-2.5 w-24 bg-accent/30 rounded-full mb-10 mx-auto md:group-hover:w-40 transition-all duration-700" />
                   <div className="text-base uppercase tracking-[0.6em] font-bold text-gray-400">
                     {stat.label}
                   </div>
