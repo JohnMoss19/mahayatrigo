@@ -17,8 +17,8 @@ export default function App() {
     <>
       <ScrollToTop />
       {/* Dynamic Animated Background */}
-      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-bg via-accent/10 to-bg animate-gradient">
-        <div className="absolute inset-0 bg-pattern opacity-20"></div>
+      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-bg via-accent/5 to-bg md:animate-gradient">
+        <div className="absolute inset-0 bg-pattern opacity-10"></div>
       </div>
       
       <div className="min-h-screen flex flex-col relative z-0">

@@ -47,7 +47,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
       <header 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
           isScrolled 
-            ? 'bg-white/80 backdrop-blur-xl shadow-sm py-3' 
+            ? 'bg-white/95 md:bg-white/80 md:backdrop-blur-xl shadow-sm py-3' 
             : 'bg-transparent py-6'
         }`}
       >

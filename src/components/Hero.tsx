@@ -19,14 +19,8 @@ export default function Hero() {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(next, 8000);
-    
-    // Pre-fetch next image
-    const nextIndex = (current + 1) % HERO_SLIDES.length;
-    const img = new Image();
-    img.src = HERO_SLIDES[nextIndex].image;
-    
     return () => clearInterval(timer);
-  }, [next, isAutoPlaying, current]);
+  }, [next, isAutoPlaying]);
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#050505]">
@@ -61,7 +55,7 @@ export default function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 md:backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6">
                   Experience the Extraordinary
                 </span>
               </motion.div>
@@ -107,7 +101,7 @@ export default function Hero() {
 
                 <Link 
                   to="/about" 
-                  className="px-10 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/20 transition-all active:scale-95"
+                  className="px-10 py-4 bg-white/10 md:backdrop-blur-md border border-white/20 text-white rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/20 transition-all active:scale-95"
                 >
                   Discover More
                 </Link>
