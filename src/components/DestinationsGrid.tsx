@@ -28,7 +28,7 @@ export default function DestinationsGrid() {
   }, []);
 
   return (
-    <section className="py-24 bg-transparent relative overflow-hidden">
+    <section className="py-16 lg:py-20 bg-transparent relative overflow-hidden">
       {/* Dynamic Mesh Gradient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {/* Animated Blobs */}
@@ -69,7 +69,6 @@ export default function DestinationsGrid() {
               centeredSlides={true}
               loop={true}
               watchSlidesProgress={true}
-              preloadImages={false}
               lazyPreloadPrevNext={2}
               coverflowEffect={{
                 rotate: 35,
@@ -104,7 +103,7 @@ export default function DestinationsGrid() {
                   slidesPerView: 4,
                 }
               }}
-              className="pb-24 pt-24 !overflow-visible"
+              className="pb-16 pt-16 lg:pb-20 lg:pt-20 !overflow-visible"
             >
               {destinations.map((dest, index) => (
                 <SwiperSlide key={`${dest.id}-${index}`} className="h-auto px-4">
@@ -112,7 +111,7 @@ export default function DestinationsGrid() {
                     <div 
                       className={`h-full transition-all duration-700 transform-gpu ${isActive ? 'scale-110 z-20' : 'scale-90 blur-[6px]'}`}
                     >
-                      <div className="relative h-[400px] sm:h-[450px] md:h-[550px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl group/card border border-white/20">
+                      <div className="relative h-[400px] sm:h-[450px] md:h-[480px] lg:h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl group/card border border-white/20">
                         {/* Background Image */}
                         <img 
                           src={dest.image} 

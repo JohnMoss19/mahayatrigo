@@ -89,17 +89,19 @@ export default function Footer() {
             </p>
             <div className="flex gap-5">
               {[
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Facebook, href: '#', label: 'Facebook' },
-                { icon: MessageCircle, href: '#', label: 'WhatsApp' }
+                { icon: Instagram, href: 'https://instagram.com/mahayatrigo', label: 'Instagram' },
+                { icon: Facebook, href: 'https://facebook.com/mahayatrigo', label: 'Facebook' },
+                { icon: MessageCircle, href: 'https://wa.me/919876543210', label: 'WhatsApp' }
               ].map((social, idx) => (
                 <a 
                   key={idx} 
                   href={social.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Follow us on ${social.label}`}
-                  className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center md:hover:bg-accent md:hover:text-white md:hover:-translate-y-2 transition-all duration-500 border border-white/10 backdrop-blur-sm"
+                  className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center md:hover:bg-accent md:hover:text-white md:hover:-translate-y-2 transition-all duration-500 border border-white/10 backdrop-blur-sm group/social"
                 >
-                  <social.icon size={20} aria-hidden="true" />
+                  <social.icon size={20} aria-hidden="true" className="transition-transform duration-500 group-hover/social:scale-110" />
                 </a>
               ))}
             </div>
