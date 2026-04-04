@@ -17,14 +17,8 @@ export default function DestinationsGrid() {
   const [destinations, setDestinations] = useState<typeof EXOTIC_DESTINATIONS>([]);
 
   useEffect(() => {
-    // Simulate API call
-    const timer = setTimeout(() => {
-      // For a truly seamless loop with Swiper, especially with coverflow and fractional slides,
-      // we need more slides than the view can show. We'll duplicate the array to ensure smoothness.
-      setDestinations([...EXOTIC_DESTINATIONS, ...EXOTIC_DESTINATIONS]);
-      setIsLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
+    setDestinations([...EXOTIC_DESTINATIONS, ...EXOTIC_DESTINATIONS]);
+    setIsLoading(false);
   }, []);
 
   return (
@@ -32,10 +26,10 @@ export default function DestinationsGrid() {
       {/* Dynamic Mesh Gradient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {/* Animated Blobs */}
-        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[120px] animate-blob opacity-60" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[120px] animate-blob animation-delay-2000 opacity-60" />
-        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[100px] animate-blob animation-delay-4000 opacity-40" />
-        <div className="absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px] animate-blob animation-delay-2000 opacity-40" />
+        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[60px] md:blur-[120px] animate-blob opacity-60 will-change-transform" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[60px] md:blur-[120px] animate-blob animation-delay-2000 opacity-60 will-change-transform" />
+        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[50px] md:blur-[100px] animate-blob animation-delay-4000 opacity-40 will-change-transform" />
+        <div className="absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[50px] md:blur-[100px] animate-blob animation-delay-2000 opacity-40 will-change-transform" />
         
         {/* Subtle Mesh Pattern Overlay */}
         <div className="absolute inset-0 bg-pattern opacity-[0.02]" />
@@ -106,10 +100,10 @@ export default function DestinationsGrid() {
               className="pb-16 pt-16 lg:pb-20 lg:pt-20 !overflow-visible"
             >
               {destinations.map((dest, index) => (
-                <SwiperSlide key={`${dest.id}-${index}`} className="h-auto px-4">
+                <SwiperSlide key={`${dest.id}-${index}`} className="h-auto px-4 will-change-transform">
                   {({ isActive }) => (
                     <div 
-                      className={`h-full transition-all duration-700 transform-gpu ${isActive ? 'scale-110 z-20' : 'scale-90 blur-[6px]'}`}
+                      className={`h-full transition-all duration-700 transform-gpu ${isActive ? 'scale-110 z-20' : 'scale-90 blur-[4px] md:blur-[6px]'}`}
                     >
                       <div className="relative h-[400px] sm:h-[450px] md:h-[480px] lg:h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl group/card border border-white/20">
                         {/* Background Image */}

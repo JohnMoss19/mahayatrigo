@@ -13,29 +13,17 @@ export default function PackageTabs() {
   const [internationalPackages, setInternationalPackages] = useState<typeof INTERNATIONAL_PACKAGES>([]);
 
   useEffect(() => {
-    // Simulate API call for domestic packages
-    const timer1 = setTimeout(() => {
-      setDomesticPackages(DOMESTIC_PACKAGES);
-      setIsLoadingDomestic(false);
-    }, 1000);
-
-    // Simulate API call for international packages
-    const timer2 = setTimeout(() => {
-      setInternationalPackages(INTERNATIONAL_PACKAGES);
-      setIsLoadingInternational(false);
-    }, 1800);
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
+    setDomesticPackages(DOMESTIC_PACKAGES);
+    setIsLoadingDomestic(false);
+    setInternationalPackages(INTERNATIONAL_PACKAGES);
+    setIsLoadingInternational(false);
   }, []);
   return (
     <section className="py-32 bg-transparent relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-2xl md:blur-3xl" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-2xl md:blur-3xl" />
       </div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">

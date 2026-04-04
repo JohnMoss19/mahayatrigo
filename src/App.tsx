@@ -22,10 +22,10 @@ export default function App() {
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         
         {/* Floating Orbs */}
-        <div className="absolute top-[10%] left-[5%] w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-[80px] animate-blob"></div>
-        <div className="absolute top-[20%] right-[10%] w-80 h-80 bg-accent/10 rounded-full mix-blend-multiply filter blur-[80px] animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[10%] left-[20%] w-96 h-96 bg-primary/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000"></div>
-        <div className="absolute bottom-[20%] right-[5%] w-72 h-72 bg-accent/10 rounded-full mix-blend-multiply filter blur-[80px] animate-blob"></div>
+        <div className="absolute top-[10%] left-[5%] w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob will-change-transform"></div>
+        <div className="absolute top-[20%] right-[10%] w-80 h-80 bg-accent/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob animation-delay-2000 will-change-transform"></div>
+        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-96 h-96 bg-primary/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000 will-change-transform"></div>
+        <div className="absolute bottom-[20%] right-[5%] w-72 h-72 bg-accent/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob will-change-transform"></div>
       </div>
       
       <FloatingIcons />

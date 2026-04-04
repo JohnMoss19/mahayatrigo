@@ -46,8 +46,8 @@ export default function AboutSection() {
             </div>
             
             {/* Decorative Background Elements */}
-            <div className="absolute top-1/2 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -z-10" />
-            <div className="absolute -bottom-20 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[120px] -z-10" />
+            <div className="absolute top-1/2 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-[60px] md:blur-[100px] -z-10" />
+            <div className="absolute -bottom-20 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[80px] md:blur-[120px] -z-10" />
           </div>
 
           {/* Right: Content */}

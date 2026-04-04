@@ -8,9 +8,9 @@ export default function HotelPartners() {
   if (!strategicPartner) return null;
 
   return (
-    <section className="py-24 bg-white border-y border-gray-100 overflow-hidden relative">
+    <section className="py-24 bg-white border-y border-gray-100 overflow-hidden relative transform-gpu">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[60px] md:blur-[120px]" />
       </div>
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">

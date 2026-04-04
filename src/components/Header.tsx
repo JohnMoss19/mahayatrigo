@@ -49,9 +49,9 @@ export default function Header({ onAuthClick }: HeaderProps) {
           isScrolled ? 'pt-2 md:pt-4' : 'pt-4 md:pt-6'
         } px-2 md:px-4`}
       >
-        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 py-2 md:px-6 md:py-3 ${
+        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 py-2 md:px-6 md:py-3 transform-gpu ${
           isScrolled 
-            ? 'bg-white/70 backdrop-blur-2xl shadow-xl border border-white/30 w-full max-w-6xl' 
+            ? 'bg-white/70 backdrop-blur-lg md:backdrop-blur-2xl shadow-xl border border-white/30 w-full max-w-6xl' 
             : 'bg-transparent w-full max-w-7xl'
         }`}>
           {/* Logo Section */}

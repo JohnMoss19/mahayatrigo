@@ -6,13 +6,13 @@ import { ChevronRight, ArrowRight, Globe, Shield, Heart } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 relative">
       {/* Main Content Section */}
       <div className="py-16 lg:py-32 bg-white relative overflow-hidden">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-          <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-primary/2 blur-[120px]" />
-          <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-accent/2 blur-[100px]" />
+          <div className="absolute top-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-primary/2 blur-[60px] md:blur-[120px]" />
+          <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-accent/2 blur-[50px] md:blur-[100px]" />
         </div>
 
         <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -26,7 +26,7 @@ export default function AboutPage() {
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                   style={{ willChange: 'transform' }}
-                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white"
+                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
                     src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
@@ -44,7 +44,7 @@ export default function AboutPage() {
                   animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   style={{ willChange: 'transform' }}
-                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white"
+                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
@@ -62,7 +62,7 @@ export default function AboutPage() {
                   animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
                   transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
                   style={{ willChange: 'transform' }}
-                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white"
+                  className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
                     src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" 

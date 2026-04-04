@@ -10,19 +10,15 @@ export default function PopularTours() {
   const [tours, setTours] = useState<typeof POPULAR_TOURS>([]);
 
   useEffect(() => {
-    // Simulate API call
-    const timer = setTimeout(() => {
-      setTours(POPULAR_TOURS);
-      setIsLoading(false);
-    }, 1200);
-    return () => clearTimeout(timer);
+    setTours(POPULAR_TOURS);
+    setIsLoading(false);
   }, []);
   return (
     <section className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[10%] right-[-10%] w-[300px] h-[300px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute top-[10%] right-[-10%] w-[300px] h-[300px] rounded-full bg-accent/5 blur-2xl md:blur-3xl" />
+        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-2xl md:blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

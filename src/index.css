@@ -18,10 +18,10 @@
   }
   --animate-blob: blob 10s infinite;
   @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
+    0% { transform: translate(0px, 0px) scale(1) translateZ(0); }
+    33% { transform: translate(30px, -50px) scale(1.1) translateZ(0); }
+    66% { transform: translate(-20px, 20px) scale(0.9) translateZ(0); }
+    100% { transform: translate(0px, 0px) scale(1) translateZ(0); }
   }
 }
 
@@ -29,10 +29,13 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    position: relative;
   }
   body {
-    @apply font-sans text-text bg-bg antialiased selection:bg-accent/20 selection:text-primary break-words;
+    @apply font-sans text-text bg-bg antialiased selection:bg-accent/20 selection:text-primary break-words relative;
     overflow-x: hidden;
+    position: relative;
+    min-height: 100%;
     /* Premium subtle mesh gradient background */
     background-image: 
       radial-gradient(at 40% 20%, hsla(28,100%,74%,0.05) 0px, transparent 50%),

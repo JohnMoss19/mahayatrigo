@@ -32,7 +32,7 @@ export default function Contact() {
           } else {
             resolve({ success: true });
           }
-        }, 2000);
+        }, 800);
       });
       setStatus('success');
       setFormData({ firstName: '', lastName: '', email: '', phone: '', subject: '', message: '' });

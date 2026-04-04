@@ -8,9 +8,14 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: isMounted ? containerRef : undefined,
     offset: ["start start", "end start"]
   });
 
@@ -45,7 +50,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-[#0a0a0a]">
+    <motion.section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-[#0a0a0a] transform-gpu isolate">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -53,11 +58,11 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0"
+          className="absolute inset-0 will-change-[opacity]"
         >
           {/* Background Image with Slow Zoom and Parallax */}
           <motion.div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transform-gpu"
             style={{ 
               backgroundImage: `url(${HERO_SLIDES[current].image})`,
               y: backgroundY
@@ -76,7 +81,7 @@ export default function Hero() {
       {/* Content Container - Centered Modern Layout with Parallax */}
       <motion.div 
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12"
+        className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12 will-change-[transform,opacity] transform-gpu"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -200,6 +205,6 @@ export default function Hero() {
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
