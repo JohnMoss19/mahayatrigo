@@ -117,7 +117,7 @@ export default function PackageTabs() {
 
 const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] transition-all duration-700 md:hover:-translate-y-2 flex flex-col h-full border border-gray-100/50">
+    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700 md:hover:-translate-y-2 md:hover:scale-[1.02] flex flex-col h-full border border-gray-100/50">
       {/* Image Section */}
       <div className="relative h-56 overflow-hidden">
         <img 
@@ -132,7 +132,7 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
         
         {/* Floating Badge */}
         {pkg.tag && (
-          <div className="absolute top-4 right-4 bg-white/95 md:backdrop-blur-md px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5" aria-label={`${pkg.tag} Package`}>
+          <div className="absolute top-4 right-4 bg-white/95 md:backdrop-blur-md px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 z-20" aria-label={`${pkg.tag} Package`}>
             <Star size={12} aria-hidden="true" className="text-accent fill-accent" />
             <span className="text-[9px] font-bold uppercase tracking-widest text-primary">{pkg.tag}</span>
           </div>

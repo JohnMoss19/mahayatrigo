@@ -28,9 +28,9 @@ export default function Header({ onAuthClick }: HeaderProps) {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
     { name: 'Domestic Tours', href: '/#domestic' },
     { name: 'International Tours', href: '/#international' },
+    { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
   ];
 

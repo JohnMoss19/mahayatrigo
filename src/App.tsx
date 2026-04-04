@@ -30,9 +30,9 @@ export default function App() {
       
       <FloatingIcons />
       
-      <div className="min-h-screen flex flex-col relative z-0">
+      <div className="min-h-screen flex flex-col relative">
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow relative">
           <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><LoadingSpinner text="Loading page..." /></div>}>
             <Routes>
               <Route path="/" element={<Home />} />

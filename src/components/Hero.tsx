@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { HERO_SLIDES } from '../constants';
 import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
@@ -7,6 +7,24 @@ import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Smooth out the scroll progress
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  // Parallax transforms
+  const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
+  const contentY = useTransform(smoothProgress, [0, 1], ["0%", "60%"]);
+  const contentOpacity = useTransform(smoothProgress, [0, 0.5], [1, 0]);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -27,7 +45,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#0a0a0a]">
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-[#0a0a0a]">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -37,10 +55,13 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          {/* Background Image with Slow Zoom */}
+          {/* Background Image with Slow Zoom and Parallax */}
           <motion.div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${HERO_SLIDES[current].image})` }}
+            style={{ 
+              backgroundImage: `url(${HERO_SLIDES[current].image})`,
+              y: backgroundY
+            }}
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, ease: "easeOut" }}
@@ -52,8 +73,11 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content Container - Centered Modern Layout */}
-      <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12">
+      {/* Content Container - Centered Modern Layout with Parallax */}
+      <motion.div 
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12"
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={`content-${current}`}
@@ -64,18 +88,18 @@ export default function Hero() {
             className="max-w-5xl flex flex-col items-center"
           >
             <motion.span 
-              initial={{ y: 15, opacity: 0 }}
+              initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
               className="inline-block px-6 py-2 rounded-full bg-black/40 backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
             >
               Experience the Extraordinary
             </motion.span>
 
             <motion.h1 
-              initial={{ y: 25, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-[1.1] tracking-tight text-white"
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", serif' }}
             >
@@ -83,9 +107,9 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p 
-              initial={{ y: 20, opacity: 0 }}
+              initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
+              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
               className="text-base md:text-xl font-light mb-10 text-gray-200 max-w-2xl leading-relaxed"
             >
               {HERO_SLIDES[current].subtitle}
@@ -116,7 +140,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
-      </div>
+      </motion.div>
 
       {/* Bottom Controls Bar */}
       <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 landscape:p-4 z-20 flex flex-col md:flex-row landscape:flex-row justify-between items-center gap-8 md:gap-6 landscape:gap-4">

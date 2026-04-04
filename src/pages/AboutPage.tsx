@@ -34,6 +34,7 @@ export default function AboutPage() {
                     className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 </motion.div>
               </FadeIn>
@@ -51,6 +52,7 @@ export default function AboutPage() {
                     className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 </motion.div>
               </FadeIn>
@@ -68,6 +70,7 @@ export default function AboutPage() {
                     className="w-full max-w-full aspect-[16/9] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 </motion.div>
               </FadeIn>

@@ -233,6 +233,7 @@ export default function Footer() {
                   className="h-3.5 w-auto object-contain transition-all duration-500"
                   referrerPolicy="no-referrer"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}

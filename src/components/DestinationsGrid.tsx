@@ -29,10 +29,19 @@ export default function DestinationsGrid() {
 
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl" />
+      {/* Dynamic Mesh Gradient Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+        {/* Animated Blobs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[120px] animate-blob opacity-60" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[120px] animate-blob animation-delay-2000 opacity-60" />
+        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[100px] animate-blob animation-delay-4000 opacity-40" />
+        <div className="absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px] animate-blob animation-delay-2000 opacity-40" />
+        
+        {/* Subtle Mesh Pattern Overlay */}
+        <div className="absolute inset-0 bg-pattern opacity-[0.02]" />
+        
+        {/* Shifting Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-accent/[0.02] animate-gradient bg-[length:200%_200%]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -59,6 +68,9 @@ export default function DestinationsGrid() {
               grabCursor={true}
               centeredSlides={true}
               loop={true}
+              watchSlidesProgress={true}
+              preloadImages={false}
+              lazyPreloadPrevNext={2}
               coverflowEffect={{
                 rotate: 35,
                 stretch: 0,
@@ -107,6 +119,8 @@ export default function DestinationsGrid() {
                           alt={dest.name} 
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110"
                           referrerPolicy="no-referrer"
+                          loading="lazy"
+                          decoding="async"
                         />
                         
                         {/* Overlays */}

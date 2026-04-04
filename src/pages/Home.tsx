@@ -8,7 +8,7 @@ import PackageTabs from '../components/PackageTabs';
 
 export default function Home() {
   return (
-    <>
+    <div className="relative">
       <Hero />
       <DestinationsGrid />
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-10" />
@@ -18,6 +18,6 @@ export default function Home() {
       <PackageTabs />
       <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-10" />
       <HotelPartners />
-    </>
+    </div>
   );
 }
