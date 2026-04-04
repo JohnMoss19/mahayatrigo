@@ -11,9 +11,12 @@ export default function Home() {
     <>
       <Hero />
       <DestinationsGrid />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-10" />
       <AboutSection />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent my-10" />
       <PopularTours />
       <PackageTabs />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-10" />
       <HotelPartners />
     </>
   );

@@ -6,9 +6,9 @@ import { CheckCircle2, ArrowRight, Phone } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-32 bg-transparent overflow-hidden relative">
+    <section id="about" className="py-20 md:py-32 bg-transparent overflow-hidden relative">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
           
           {/* Left: Artistic Image Composition */}
           <div className="lg:w-[32%] relative">
@@ -17,18 +17,18 @@ export default function AboutSection() {
                 <img 
                   src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80" 
                   alt="Taj Mahal" 
-                  className="w-full aspect-[4/5] object-cover md:hover:scale-105 transition-transform duration-1000"
+                  className="w-full max-w-full aspect-[4/5] object-cover md:hover:scale-105 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                   decoding="async"
                 />
               </FadeIn>
               
-              <FadeIn direction="up" delay={0.4} className="absolute -bottom-8 -right-6 w-3/5 rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] border-8 border-white z-20 hidden md:block">
+              <FadeIn direction="up" delay={0.4} className="absolute -bottom-8 -right-6 w-3/5 rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] border-8 border-white z-20">
                 <img 
                   src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" 
                   alt="Goa Beach" 
-                  className="w-full aspect-square object-cover md:hover:scale-110 transition-transform duration-1000"
+                  className="w-full max-w-full aspect-square object-cover md:hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                   decoding="async"
@@ -36,11 +36,11 @@ export default function AboutSection() {
               </FadeIn>
 
               {/* Floating Badge */}
-              <FadeIn delay={0.8} className="absolute -top-6 -left-6 z-30 hidden xl:block" aria-label="12 plus years of excellence">
-                <div className="w-28 h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40 animate-pulse">
-                  <span className="text-xl font-serif font-bold">12+</span>
-                  <span className="text-[7px] uppercase tracking-widest font-bold">Years of</span>
-                  <span className="text-[7px] uppercase tracking-widest font-bold">Excellence</span>
+              <FadeIn delay={0.8} className="absolute -top-6 -left-6 z-30" aria-label="12 plus years of excellence">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40 animate-pulse">
+                  <span className="text-lg md:text-xl font-serif font-bold">12+</span>
+                  <span className="text-[6px] md:text-[7px] uppercase tracking-widest font-bold">Years of</span>
+                  <span className="text-[6px] md:text-[7px] uppercase tracking-widest font-bold">Excellence</span>
                 </div>
               </FadeIn>
             </div>
@@ -104,7 +104,7 @@ export default function AboutSection() {
         </div>
 
         {/* Stats Grid - Refined */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 mt-56">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-16 md:gap-16 mt-24 md:mt-56">
           {TRUST_STATS.map((stat, index) => (
             <FadeIn
               key={stat.label}
@@ -112,16 +112,16 @@ export default function AboutSection() {
               className="relative group"
             >
                 <div className="flex flex-col items-center text-center">
-                <div className="text-8xl md:text-[11rem] font-serif font-bold text-primary/10 md:group-hover:text-accent/20 transition-colors duration-700 absolute -top-20 left-1/2 -translate-x-1/2 select-none">
+                <div className="text-7xl md:text-[11rem] font-serif font-bold text-primary/10 md:group-hover:text-accent/20 transition-colors duration-700 absolute -top-6 md:-top-20 left-1/2 -translate-x-1/2 select-none">
                   0{index + 1}
                 </div>
-                <div className="relative z-10 pt-10">
-                  <div className="text-7xl md:text-8xl font-serif font-bold text-primary mb-5 flex items-baseline justify-center gap-1">
+                <div className="relative z-10 pt-8 md:pt-10">
+                  <div className="text-5xl sm:text-6xl md:text-8xl font-serif font-bold text-primary mb-3 md:mb-5 flex items-baseline justify-center gap-1">
                     {stat.value}
-                    <span className="text-accent text-5xl">{stat.suffix}</span>
+                    <span className="text-accent text-3xl md:text-5xl">{stat.suffix}</span>
                   </div>
-                  <div className="h-2.5 w-24 bg-accent/30 rounded-full mb-10 mx-auto md:group-hover:w-40 transition-all duration-700" />
-                  <div className="text-base uppercase tracking-[0.6em] font-bold text-gray-400">
+                  <div className="h-1.5 md:h-2.5 w-16 md:w-24 bg-accent/30 rounded-full mb-6 md:mb-10 mx-auto md:group-hover:w-40 transition-all duration-700" />
+                  <div className="text-xs sm:text-sm md:text-base uppercase tracking-[0.15em] md:tracking-[0.4em] font-bold text-gray-400 px-2">
                     {stat.label}
                   </div>
                 </div>

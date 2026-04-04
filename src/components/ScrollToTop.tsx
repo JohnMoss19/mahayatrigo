@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -18,9 +18,9 @@ export default function ScrollToTop() {
     } else {
       // Small delay to ensure the page has rendered before scrolling to hash
       const timer = setTimeout(() => {
-        const element = document.getElementById(hash.replace('#', ''));
+        const element = document.getElementById(hash.replace("#", ""));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
       return () => clearTimeout(timer);

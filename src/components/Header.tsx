@@ -15,7 +15,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -45,31 +45,33 @@ export default function Header({ onAuthClick }: HeaderProps) {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
-          isScrolled 
-            ? 'bg-white/95 md:bg-white/80 md:backdrop-blur-xl shadow-sm py-3' 
-            : 'bg-transparent py-6'
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 flex justify-center ${
+          isScrolled ? 'pt-2 md:pt-4' : 'pt-4 md:pt-6'
+        } px-2 md:px-4`}
       >
-        <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 py-2 md:px-6 md:py-3 ${
+          isScrolled 
+            ? 'bg-white/70 backdrop-blur-2xl shadow-xl border border-white/30 w-full max-w-6xl' 
+            : 'bg-transparent w-full max-w-7xl'
+        }`}>
           {/* Logo Section */}
-          <Link to="/" className="flex items-center gap-3 group" aria-label="MAHA YatriGo Home">
-            <div className="relative">
-              <Logo isScrolled={!isLightText} className="h-12 w-12 md:h-16 md:w-16 transition-transform duration-500 group-hover:rotate-[360deg]" />
+          <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0" aria-label="MAHA YatriGo Home">
+            <div className="relative flex-shrink-0">
+              <Logo isScrolled={!isLightText} className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14 transition-transform duration-500 group-hover:rotate-[360deg]" />
               <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
-            <div className="flex flex-col">
-              <span className={`text-2xl md:text-3xl font-serif font-bold tracking-tight leading-none transition-colors duration-500 ${!isLightText ? 'text-primary' : 'text-white'}`}>
+            <div className="flex flex-col justify-center">
+              <span className={`text-lg sm:text-xl md:text-3xl font-serif font-bold tracking-tight leading-none transition-colors duration-500 ${!isLightText ? 'text-primary' : 'text-white'}`}>
                 MAHA <span className="text-accent">YatriGo</span>
               </span>
-              <span className={`text-[10px] md:text-[12px] uppercase tracking-[0.2em] font-bold mt-1 transition-colors duration-500 ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
+              <span className={`text-[7px] sm:text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold mt-0.5 md:mt-1 transition-colors duration-500 ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
                 Journeys of Faith & Wonder
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group py-2">
                 {link.href.startsWith('/#') ? (
@@ -100,21 +102,11 @@ export default function Header({ onAuthClick }: HeaderProps) {
           </nav>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4 md:gap-6">
-            {/* <button 
-              onClick={onAuthClick}
-              aria-label="Sign In"
-              className={`hidden sm:block text-xs uppercase tracking-widest font-bold transition-colors hover:text-accent ${
-                !isLightText ? 'text-primary' : 'text-white'
-              }`}
-            >
-              Sign In
-            </button> */}
-            
+          <div className="flex items-center gap-2 md:gap-4 shrink-0">
             <a 
               href="tel:+919876543210" 
               aria-label="Call Now"
-              className="hidden md:flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-all duration-500 shadow-lg shadow-primary/10 hover:shadow-accent/20 hover:-translate-y-0.5"
+              className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-all duration-500 shadow-lg shadow-primary/10 hover:shadow-accent/20 hover:-translate-y-0.5"
             >
               <Phone size={14} aria-hidden="true" />
               <span>Call Now</span>
@@ -122,13 +114,15 @@ export default function Header({ onAuthClick }: HeaderProps) {
 
             {/* Mobile Menu Toggle */}
             <button 
-              className={`lg:hidden p-2.5 rounded-full transition-all duration-500 ${
+              className={`lg:hidden p-2 md:p-2.5 rounded-full transition-all duration-500 flex items-center justify-center ${
                 !isLightText ? 'bg-primary/5 text-primary' : 'bg-white/10 text-white'
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle Menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              <motion.div animate={{ rotate: isMenuOpen ? 90 : 0 }} transition={{ duration: 0.3 }} className="flex items-center justify-center">
+                {isMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
+              </motion.div>
             </button>
           </div>
         </div>
@@ -139,30 +133,34 @@ export default function Header({ onAuthClick }: HeaderProps) {
         {isMenuOpen && (
           <>
             <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+              animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
+              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+              transition={{ duration: 0.4 }}
               onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-primary/40 z-[60] lg:hidden"
+              className="fixed inset-0 bg-primary/80 z-[60] lg:hidden"
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl z-[70] flex flex-col lg:hidden"
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white/90 backdrop-blur-2xl shadow-2xl z-[70] flex flex-col lg:hidden border-l border-white/20"
             >
-              <div className="p-8 flex items-center justify-between border-b border-gray-50">
+              <div className="p-8 flex items-center justify-between border-b border-gray-200/50">
                 <Link to="/" className="flex items-center gap-3" aria-label="MAHA YatriGo Home">
-                  <Logo isScrolled={true} className="h-12 w-12" />
-                  <span className="text-2xl font-serif font-bold text-primary">MAHA <span className="text-accent">YatriGo</span></span>
+                  <Logo isScrolled={true} className="h-10 w-10" />
+                  <div className="flex flex-col">
+                    <span className="text-xl font-serif font-bold text-primary leading-none">MAHA <span className="text-accent">YatriGo</span></span>
+                    <span className="text-[8px] uppercase tracking-[0.2em] font-bold mt-1 text-gray-500">Journeys of Faith & Wonder</span>
+                  </div>
                 </Link>
                 <button 
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Close Menu"
-                  className="p-2 text-gray-400 hover:text-primary transition-colors"
+                  className="p-2 text-gray-500 hover:text-accent transition-colors bg-gray-100 rounded-full"
                 >
-                  <X size={24} />
+                  <X size={20} />
                 </button>
               </div>
 
@@ -171,9 +169,9 @@ export default function Header({ onAuthClick }: HeaderProps) {
                   {navLinks.map((link, i) => (
                     <motion.div
                       key={link.name}
-                      initial={{ opacity: 0, x: 20 }}
+                      initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
+                      transition={{ delay: 0.1 + i * 0.1, duration: 0.4, ease: "easeOut" }}
                     >
                       <Link
                         to={link.href}
@@ -192,22 +190,13 @@ export default function Header({ onAuthClick }: HeaderProps) {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="pt-8 border-t border-gray-50 space-y-6"
+                  transition={{ delay: 0.6, duration: 0.4 }}
+                  className="pt-8 border-t border-gray-200/50 space-y-6 mt-auto"
                 >
-                  {/* <button 
-                    onClick={() => { onAuthClick?.(); setIsMenuOpen(false); }}
-                    aria-label="Account Sign In"
-                    className="flex items-center justify-between w-full text-lg font-bold text-primary group"
-                  >
-                    Account Sign In
-                    <ArrowRight size={20} aria-hidden="true" className="text-accent transition-transform group-hover:translate-x-1" />
-                  </button> */}
-                  
                   <a 
                     href="tel:+919876543210" 
                     aria-label="Call Us Today"
-                    className="flex items-center justify-center gap-3 bg-accent text-white py-4 rounded-2xl font-bold shadow-xl shadow-accent/20 active:scale-95 transition-transform"
+                    className="flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-accent text-white py-4 rounded-2xl font-bold shadow-xl shadow-accent/20 active:scale-95 transition-transform"
                   >
                     <Phone size={20} aria-hidden="true" />
                     Call Us Today
@@ -215,8 +204,8 @@ export default function Header({ onAuthClick }: HeaderProps) {
                 </motion.div>
               </div>
 
-              <div className="p-8 bg-gray-50/50">
-                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-4">Follow Our Journey</p>
+              <div className="p-8 bg-gray-100/50">
+                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500 mb-4">Follow Our Journey</p>
                 <div className="flex gap-4">
                   {['Instagram', 'Facebook', 'WhatsApp'].map((social) => (
                     <span key={social} className="text-xs font-bold text-primary/60 hover:text-accent cursor-pointer transition-colors">{social}</span>

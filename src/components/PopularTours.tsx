@@ -18,9 +18,15 @@ export default function PopularTours() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <section className="py-24 bg-transparent relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-transparent relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
+        <div className="absolute top-[10%] right-[-10%] w-[300px] h-[300px] rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-3xl" />
+      </div>
+
       <div className="container mx-auto px-4 relative z-10">
-        <FadeIn className="text-center mb-16">
+        <FadeIn className="text-center mb-12 md:mb-16">
           <span className="font-cursive text-4xl md:text-5xl text-accent mb-2 block" aria-hidden="true">Best Place For You</span>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">Most Popular Tour</h2>
         </FadeIn>
@@ -39,7 +45,7 @@ export default function PopularTours() {
                     <img 
                       src={tour.image} 
                       alt={tour.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
+                      className="w-full max-w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                       decoding="async"

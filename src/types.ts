@@ -14,6 +14,7 @@ export interface TourPackage {
   price: string;
   duration?: string;
   details?: { duration: string; price: string }[];
+  tag?: string;
 }
 
 export interface Stat {

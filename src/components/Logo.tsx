@@ -1,16 +1,16 @@
 import React from 'react';
 
 export default function Logo({ className = "h-12 w-12", isScrolled = false }: { className?: string; isScrolled?: boolean }) {
-  const color = isScrolled ? "#004d4d" : "#ffffff";
-  const accent = "#ff8c00";
-  const gold = "#d4af37";
+  const color = isScrolled ? "#0B2545" : "#ffffff";
+  const accent = "#10B981"; // Emerald 500
+  const gold = "#059669"; // Emerald 600
 
   return (
     <svg viewBox="0 0 100 100" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="sunGradient" x1="50" y1="30" x2="50" y2="70" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#ff8c00" />
-          <stop offset="100%" stopColor="#ffd700" />
+          <stop offset="0%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#34D399" />
         </linearGradient>
       </defs>
 

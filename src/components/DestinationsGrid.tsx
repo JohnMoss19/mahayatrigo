@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import FadeIn from './FadeIn';
 import { ArrowRight } from 'lucide-react';
 import LoadingSpinner from './LoadingSpinner';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function DestinationsGrid() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +22,7 @@ export default function DestinationsGrid() {
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+
   return (
     <section className="py-24 bg-transparent relative overflow-hidden">
       {/* Decorative Background Elements */}
@@ -38,43 +44,66 @@ export default function DestinationsGrid() {
             <LoadingSpinner text="Loading exotic destinations..." />
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-            {destinations.map((dest, index) => (
-              <FadeIn key={dest.id} delay={index * 0.1}>
-                <div className="glass-card rounded-2xl overflow-hidden md:hover:shadow-2xl md:hover:border-accent/30 transition-all duration-500 group h-full flex flex-col md:hover:-translate-y-2 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true" />
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={dest.image} 
-                      alt={dest.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  
-                  <div className="p-6 flex-1 flex flex-col relative z-10">
-                    <h3 className="text-2xl font-serif font-bold text-primary mb-3 group-hover:text-accent transition-colors">{dest.name}</h3>
-                    
-                    <div className="mb-6">
-                      <span className="text-sm text-gray-600">Starting from </span>
-                      <span className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Rs. {dest.price}</span>
+          <div className="relative px-4 md:px-8">
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={24}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true, dynamicBullets: true }}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+                1280: {
+                  slidesPerView: 4,
+                },
+              }}
+              className="pb-16 pt-4 px-2"
+            >
+              {destinations.map((dest, index) => (
+                <SwiperSlide key={dest.id} className="h-auto">
+                  <FadeIn delay={index * 0.1} className="h-full">
+                    <div className="glass-card rounded-2xl overflow-hidden md:hover:shadow-2xl md:hover:border-accent/30 transition-all duration-500 group h-full flex flex-col md:hover:-translate-y-2 relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true" />
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        <img 
+                          src={dest.image} 
+                          alt={dest.name} 
+                          className="w-full max-w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
+                          referrerPolicy="no-referrer"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                      
+                      <div className="p-6 flex-1 flex flex-col relative z-10">
+                        <h3 className="text-2xl font-serif font-bold text-primary mb-3 group-hover:text-accent transition-colors">{dest.name}</h3>
+                        
+                        <div className="mb-6">
+                          <span className="text-sm text-gray-600">Starting from </span>
+                          <span className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Rs. {dest.price}</span>
+                        </div>
+                        
+                        <div className="mt-auto">
+                          <Link 
+                            to="/contact" 
+                            aria-label={`Enquire about ${dest.name} packages`}
+                            className="w-full py-4 rounded-2xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-3 hover:bg-accent transition-all duration-500 shadow-xl shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
+                          >
+                            Enquire Now <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover/btn:translate-x-1" />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <div className="mt-auto">
-                      <Link 
-                        to="/contact" 
-                        aria-label={`Enquire about ${dest.name} packages`}
-                        className="w-full py-4 rounded-2xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-3 hover:bg-accent transition-all duration-500 shadow-xl shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
-                      >
-                        Enquire Now <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover/btn:translate-x-1" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+                  </FadeIn>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         )}
       </div>

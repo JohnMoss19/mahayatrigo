@@ -50,6 +50,7 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
     name: 'Himachal Pradesh', 
     image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=400&auto=format&fit=crop', 
     price: '13,500',
+    tag: 'New Arrival',
     details: [
       { duration: '6 nights', price: '13,500' },
       { duration: '9 nights', price: '18,999' }
@@ -60,6 +61,7 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
     name: 'Rajasthan Royal Heritage', 
     image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&auto=format&fit=crop', 
     price: '15,000',
+    tag: 'Limited Offer',
     details: [
       { duration: '5 nights', price: '15,000' },
       { duration: '8 nights', price: '22,500' }
@@ -83,6 +85,7 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
     name: 'Singapore & Malaysia', 
     image: 'https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&auto=format&fit=crop', 
     price: '55,000',
+    tag: 'Best Seller',
     details: [
       { duration: '5 nights', price: '55,000' },
       { duration: '7 nights', price: '72,000' }
@@ -93,6 +96,7 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
     name: 'Vietnam & Cambodia', 
     image: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=400&auto=format&fit=crop', 
     price: '48,000',
+    tag: 'New Arrival',
     details: [
       { duration: '6 nights', price: '48,000' },
       { duration: '9 nights', price: '65,000' }

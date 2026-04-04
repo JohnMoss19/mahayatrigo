@@ -65,7 +65,7 @@ export default function PackageTabs() {
               <LoadingSpinner text="Loading domestic packages..." />
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {domesticPackages.map((pkg, index) => (
                 <FadeIn key={pkg.id} delay={index * 0.1}>
                   <PackageCard pkg={pkg} />
@@ -101,7 +101,7 @@ export default function PackageTabs() {
               <LoadingSpinner text="Loading international packages..." />
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {internationalPackages.map((pkg, index) => (
                 <FadeIn key={pkg.id} delay={index * 0.1}>
                   <PackageCard pkg={pkg} />
@@ -117,13 +117,13 @@ export default function PackageTabs() {
 
 const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
   return (
-    <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] transition-all duration-700 md:hover:-translate-y-3 flex flex-col h-full border border-gray-100/50">
+    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.2)] transition-all duration-700 md:hover:-translate-y-2 flex flex-col h-full border border-gray-100/50">
       {/* Image Section */}
-      <div className="relative h-72 overflow-hidden">
+      <div className="relative h-56 overflow-hidden">
         <img 
           src={pkg.image} 
           alt={pkg.name} 
-          className="w-full h-full object-cover transition-transform duration-1000 md:group-hover:scale-110"
+          className="w-full max-w-full h-full object-cover transition-transform duration-1000 md:group-hover:scale-110"
           referrerPolicy="no-referrer"
           loading="lazy"
           decoding="async"
@@ -131,32 +131,34 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
         
         {/* Floating Badge */}
-        <div className="absolute top-6 right-6 bg-white/95 md:backdrop-blur-md px-4 py-2 rounded-full shadow-xl flex items-center gap-2" aria-label="Top Rated Package">
-          <Star size={14} aria-hidden="true" className="text-accent fill-accent" />
-          <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Top Rated</span>
-        </div>
+        {pkg.tag && (
+          <div className="absolute top-4 right-4 bg-white/95 md:backdrop-blur-md px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5" aria-label={`${pkg.tag} Package`}>
+            <Star size={12} aria-hidden="true" className="text-accent fill-accent" />
+            <span className="text-[9px] font-bold uppercase tracking-widest text-primary">{pkg.tag}</span>
+          </div>
+        )}
 
         {/* Location Badge */}
-        <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white">
-          <MapPin size={16} aria-hidden="true" className="text-accent" />
-          <span className="text-sm font-medium tracking-wide">{pkg.name.split(' ')[0]}</span>
+        <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+          <MapPin size={14} aria-hidden="true" className="text-accent" />
+          <span className="text-xs font-medium tracking-wide">{pkg.name.split(' ')[0]}</span>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="p-8 flex flex-col flex-grow">
-        <h3 className="text-2xl font-serif font-bold text-primary mb-6 group-hover:text-accent transition-colors duration-500 line-clamp-2 leading-tight">
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-xl font-serif font-bold text-primary mb-4 group-hover:text-accent transition-colors duration-500 line-clamp-2 leading-tight">
           {pkg.name}
         </h3>
         
-        <div className="space-y-4 mb-8 flex-grow">
+        <div className="space-y-3 mb-6 flex-grow">
           {pkg.details?.map((detail, idx) => (
-            <div key={idx} className="flex justify-between items-center p-4 rounded-2xl bg-gray-50 group-hover:bg-accent/5 transition-colors duration-500 border border-transparent group-hover:border-accent/10">
-              <div className="flex items-center gap-3">
-                <Clock size={16} aria-hidden="true" className="text-accent" />
-                <span className="text-sm font-bold text-gray-600 uppercase tracking-widest">{detail.duration}</span>
+            <div key={idx} className="flex justify-between items-center p-3 rounded-xl bg-gray-50 group-hover:bg-accent/5 transition-colors duration-500 border border-transparent group-hover:border-accent/10">
+              <div className="flex items-center gap-2">
+                <Clock size={14} aria-hidden="true" className="text-accent" />
+                <span className="text-xs font-bold text-gray-600 uppercase tracking-widest">{detail.duration}</span>
               </div>
-              <div className="text-2xl font-serif font-bold text-primary group-hover:text-accent transition-colors duration-500">
+              <div className="text-lg font-serif font-bold text-primary group-hover:text-accent transition-colors duration-500">
                 Rs. {detail.price}
               </div>
             </div>
@@ -166,7 +168,7 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
         <Link 
           to="/contact" 
           aria-label={`Enquire about ${pkg.name}`}
-          className="w-full py-4 rounded-2xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-3 hover:bg-accent transition-all duration-500 shadow-xl shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
+          className="w-full py-3 rounded-xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 hover:bg-accent transition-all duration-500 shadow-lg shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
         >
           Enquire Now <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover/btn:translate-x-1" />
         </Link>

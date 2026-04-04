@@ -31,7 +31,7 @@ export default function AboutPage() {
                   <img 
                     src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
                     alt="Mountain Lake" 
-                    className="w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
+                    className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                   />
@@ -48,7 +48,7 @@ export default function AboutPage() {
                   <img 
                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
                     alt="Group Hiking" 
-                    className="w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
+                    className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                   />
@@ -65,7 +65,7 @@ export default function AboutPage() {
                   <img 
                     src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" 
                     alt="Tropical Beach" 
-                    className="w-full aspect-[16/9] object-cover hover:scale-110 transition-transform duration-1000"
+                    className="w-full max-w-full aspect-[16/9] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                   />
