@@ -22,46 +22,9 @@ export default function Hero() {
   });
 
   // Parallax transforms
-  const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "25%"]);
-  const contentY = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+  const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
+  const contentY = useTransform(smoothProgress, [0, 1], ["0%", "60%"]);
   const contentOpacity = useTransform(smoothProgress, [0, 0.5], [1, 0]);
-
-  const titleVariants = {
-    initial: { y: 40, opacity: 0 },
-    animate: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
-    },
-    exit: { 
-      y: -20, 
-      opacity: 0,
-      transition: { duration: 0.6, ease: "easeIn" }
-    }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    initial: { y: 20, opacity: 0 },
-    animate: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
-    },
-    exit: { 
-      y: -10, 
-      opacity: 0,
-      transition: { duration: 0.4 }
-    }
-  };
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -83,13 +46,13 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-[#0a0a0a]">
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
           {/* Background Image with Slow Zoom and Parallax */}
@@ -99,11 +62,13 @@ export default function Hero() {
               backgroundImage: `url(${HERO_SLIDES[current].image})`,
               y: backgroundY
             }}
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, ease: "easeOut" }}
           >
             {/* Modern, subtle overlays */}
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
           </motion.div>
         </motion.div>
       </AnimatePresence>
@@ -116,55 +81,59 @@ export default function Hero() {
         <AnimatePresence mode="wait">
           <motion.div
             key={`content-${current}`}
-            variants={staggerContainer}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-5xl flex flex-col items-center"
           >
-            <motion.div variants={itemVariants} className="relative">
-              <span className="inline-block px-6 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-8 relative overflow-hidden group">
-                <motion.span 
-                  animate={{ x: ['-100%', '200%'] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                />
-                Experience the Extraordinary
-              </span>
-            </motion.div>
+            <motion.span 
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              className="inline-block px-6 py-2 rounded-full bg-black/40 backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
+            >
+              Experience the Extraordinary
+            </motion.span>
 
-            <div className="overflow-hidden mb-6">
-              <motion.h1 
-                variants={titleVariants}
-                className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold leading-[1.05] tracking-tight text-white drop-shadow-2xl"
-                style={{ fontFamily: '"Playfair Display", serif' }}
-              >
-                {HERO_SLIDES[current].title}
-              </motion.h1>
-            </div>
+            <motion.h1 
+              initial={{ y: 15, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-[1.1] tracking-tight text-white"
+              style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", serif' }}
+            >
+              {HERO_SLIDES[current].title}
+            </motion.h1>
 
             <motion.p 
-              variants={itemVariants}
-              className="text-base md:text-xl font-light mb-12 text-gray-200 max-w-2xl leading-relaxed drop-shadow-lg"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+              className="text-base md:text-xl font-light mb-10 text-gray-200 max-w-2xl leading-relaxed"
             >
               {HERO_SLIDES[current].subtitle}
             </motion.p>
 
             <motion.div 
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row landscape:flex-row gap-4 w-full sm:w-auto px-8 sm:px-0"
+              initial={{ y: 15, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 1.1 }}
+              className="flex flex-col sm:flex-row landscape:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-8 sm:px-0 mt-2"
             >
               <Link 
                 to="/contact" 
-                className="group relative px-8 py-4 bg-accent text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs overflow-hidden transition-all duration-500 hover:bg-white hover:text-primary hover:shadow-[0_20px_50px_-10px_rgba(255,107,53,0.5)] hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 w-full sm:w-auto"
+                className="group relative px-6 py-3 md:px-7 md:py-3.5 bg-accent text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs overflow-hidden transition-all duration-500 hover:bg-orange-600 hover:shadow-lg hover:shadow-accent/40 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 w-full sm:w-auto"
               >
-                Start Your Journey
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Start Your Journey
+                  <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </Link>
 
               <Link 
                 to="/about" 
-                className="px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white hover:text-primary hover:border-white hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 active:scale-95 flex items-center justify-center backdrop-blur-md w-full sm:w-auto"
+                className="px-6 py-3 md:px-7 md:py-3.5 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-500 hover:-translate-y-1 active:scale-95 flex items-center justify-center backdrop-blur-md w-full sm:w-auto"
               >
                 Discover More
               </Link>
