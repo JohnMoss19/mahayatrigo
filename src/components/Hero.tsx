@@ -53,7 +53,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Content Container - Centered Modern Layout */}
-      <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20">
+      <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={`content-${current}`}
@@ -64,18 +64,18 @@ export default function Hero() {
             className="max-w-5xl flex flex-col items-center"
           >
             <motion.span 
-              initial={{ y: 10, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
               className="inline-block px-6 py-2 rounded-full bg-black/40 backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
             >
               Experience the Extraordinary
             </motion.span>
 
             <motion.h1 
-              initial={{ y: 10, opacity: 0 }}
+              initial={{ y: 25, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+              transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-[1.1] tracking-tight text-white"
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", serif' }}
             >
@@ -83,19 +83,19 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p 
-              initial={{ y: 10, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+              transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
               className="text-base md:text-xl font-light mb-10 text-gray-200 max-w-2xl leading-relaxed"
             >
               {HERO_SLIDES[current].subtitle}
             </motion.p>
 
             <motion.div 
-              initial={{ y: 10, opacity: 0 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-8 sm:px-0 mt-2"
+              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 1.1 }}
+              className="flex flex-col sm:flex-row landscape:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-8 sm:px-0 mt-2"
             >
               <Link 
                 to="/contact" 
@@ -119,10 +119,10 @@ export default function Hero() {
       </div>
 
       {/* Bottom Controls Bar */}
-      <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 z-20 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-6">
+      <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 landscape:p-4 z-20 flex flex-col md:flex-row landscape:flex-row justify-between items-center gap-8 md:gap-6 landscape:gap-4">
         
         {/* Slide Indicators */}
-        <div className="flex items-center gap-3 order-2 md:order-1 w-full md:w-auto justify-center md:justify-start">
+        <div className="flex items-center gap-3 order-2 md:order-1 landscape:order-1 w-full md:w-auto justify-center md:justify-start">
           <span className="text-xs font-bold text-white/80 tracking-widest">
             {String(current + 1).padStart(2, '0')}
           </span>
@@ -150,7 +150,7 @@ export default function Hero() {
         <motion.div 
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="order-1 md:order-2 flex flex-col items-center gap-2 cursor-pointer hover:text-accent transition-colors"
+          className="order-1 md:order-2 landscape:hidden flex flex-col items-center gap-2 cursor-pointer hover:text-accent transition-colors"
           onClick={handleScrollDown}
           aria-label="Scroll down"
         >
