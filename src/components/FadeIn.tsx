@@ -22,7 +22,7 @@ export default function FadeIn({ children, delay = 0, direction = 'up', classNam
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
       className={className}
       {...props}
     >

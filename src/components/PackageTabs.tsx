@@ -22,8 +22,8 @@ export default function PackageTabs() {
     <section className="py-32 bg-transparent relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-2xl md:blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-accent/5 blur-2xl md:blur-3xl" />
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-5" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-5" />
       </div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -55,7 +55,7 @@ export default function PackageTabs() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {domesticPackages.map((pkg, index) => (
-                <FadeIn key={pkg.id} delay={index * 0.1}>
+                <FadeIn key={pkg.id} delay={index * 0.05}>
                   <PackageCard pkg={pkg} isPriority={index < 3} />
                 </FadeIn>
               ))}
@@ -91,7 +91,7 @@ export default function PackageTabs() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {internationalPackages.map((pkg, index) => (
-                <FadeIn key={pkg.id} delay={index * 0.1}>
+                <FadeIn key={pkg.id} delay={index * 0.05}>
                   <PackageCard pkg={pkg} isPriority={false} />
                 </FadeIn>
               ))}
@@ -105,19 +105,19 @@ export default function PackageTabs() {
 
 const PackageCard: React.FC<{ pkg: TourPackage; isPriority?: boolean }> = ({ pkg, isPriority = false }) => {
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700 md:hover:-translate-y-2 md:hover:scale-[1.02] flex flex-col h-full border border-gray-100/50">
+    <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-300 md:hover:-translate-y-2 md:hover:scale-[1.02] flex flex-col h-full border border-gray-100/50">
       {/* Image Section */}
       <div className="relative h-56 overflow-hidden">
         <img 
           src={pkg.image} 
           alt={pkg.name} 
-          className="w-full max-w-full h-full object-cover transition-transform duration-1000 md:group-hover:scale-110"
+          className="w-full max-w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-110"
           referrerPolicy="no-referrer"
           loading={isPriority ? "eager" : "lazy"}
           fetchPriority={isPriority ? "high" : "auto"}
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
         
         {/* Floating Badge */}
         {pkg.tag && (

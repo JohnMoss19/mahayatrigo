@@ -82,7 +82,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
               <Logo isScrolled={!isLightText} className={`transition-all duration-500 group-hover:rotate-[360deg] ${
                 isScrolled ? 'h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10' : 'h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14'
               }`} />
-              <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -inset-1 bg-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col justify-center">
               <span className={`font-serif font-bold tracking-tight leading-none transition-all duration-500 ${
@@ -171,8 +171,6 @@ export default function Header({ onAuthClick }: HeaderProps) {
             {/* Background Accents */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity" />
-              <div className="absolute top-[-15%] right-[-15%] w-[80%] h-[80%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15" />
-              <div className="absolute bottom-[-15%] left-[-15%] w-[80%] h-[80%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15" />
             </div>
 
             {/* Header */}

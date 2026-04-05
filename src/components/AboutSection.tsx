@@ -37,7 +37,7 @@ export default function AboutSection() {
 
               {/* Floating Badge */}
               <FadeIn delay={0.8} className="absolute -top-6 -left-6 z-30" aria-label="12 plus years of excellence">
-                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40 animate-pulse">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-accent flex flex-col items-center justify-center text-white shadow-2xl shadow-accent/40">
                   <span className="text-lg md:text-xl font-serif font-bold">12+</span>
                   <span className="text-[6px] md:text-[7px] uppercase tracking-widest font-bold">Years of</span>
                   <span className="text-[6px] md:text-[7px] uppercase tracking-widest font-bold">Excellence</span>

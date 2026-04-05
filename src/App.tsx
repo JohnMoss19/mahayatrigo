@@ -31,10 +31,9 @@ export default function App() {
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         
         {/* Floating Orbs - Optimized with radial gradients instead of blur */}
-        <div className="hidden md:block absolute top-[10%] left-[5%] w-72 h-72 bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 transform-gpu"></div>
-        <div className="hidden md:block absolute top-[20%] right-[10%] w-80 h-80 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 transform-gpu"></div>
-        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-96 h-96 bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 transform-gpu"></div>
-        <div className="hidden md:block absolute bottom-[20%] right-[5%] w-72 h-72 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 transform-gpu"></div>
+        <div className="hidden md:block absolute top-[15%] left-[5%] w-64 h-64 bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15 transform-gpu"></div>
+        <div className="hidden md:block absolute top-[25%] right-[10%] w-72 h-72 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15 transform-gpu"></div>
+        <div className="hidden md:block absolute bottom-[15%] right-[5%] w-64 h-64 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15 transform-gpu"></div>
       </div>
       
       <FloatingIcons />

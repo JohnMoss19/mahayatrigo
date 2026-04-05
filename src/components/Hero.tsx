@@ -87,13 +87,13 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-5xl flex flex-col items-center"
           >
             <motion.span 
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
               className="inline-block px-6 py-2 rounded-full bg-black/40 border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
             >
               Experience the Extraordinary
@@ -102,7 +102,7 @@ export default function Hero() {
             <motion.h1 
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+              transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-[1.1] tracking-tight text-white"
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", serif' }}
             >
@@ -112,7 +112,7 @@ export default function Hero() {
             <motion.p 
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
+              transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
               className="text-base md:text-xl font-light mb-10 text-gray-200 max-w-2xl leading-relaxed"
             >
               {HERO_SLIDES[current].subtitle}
@@ -121,7 +121,7 @@ export default function Hero() {
             <motion.div 
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 2, ease: [0.22, 1, 0.36, 1], delay: 1.1 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.6 }}
               className="flex flex-col sm:flex-row landscape:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-8 sm:px-0 mt-2"
             >
               <Link 

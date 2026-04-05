@@ -17,8 +17,8 @@ export default function PopularTours() {
     <section className="py-16 md:py-24 bg-transparent relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <div className="absolute top-[10%] right-[-10%] w-[300px] h-[300px] rounded-full bg-accent/5 blur-2xl md:blur-3xl" />
-        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-2xl md:blur-3xl" />
+        <div className="absolute top-[10%] right-[-10%] w-[300px] h-[300px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-5" />
+        <div className="absolute bottom-[20%] left-[-5%] w-[400px] h-[400px] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-5" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -34,14 +34,14 @@ export default function PopularTours() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
             {tours.map((tour, index) => (
-              <FadeIn key={tour.id} delay={index * 0.1}>
-                <div className="glass-card rounded-2xl overflow-hidden md:hover:shadow-2xl md:hover:border-accent/30 transition-all duration-500 group h-full flex flex-col md:hover:-translate-y-2 relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true" />
+              <FadeIn key={tour.id} delay={index * 0.05}>
+                <div className="glass-card rounded-2xl overflow-hidden md:hover:shadow-2xl md:hover:border-accent/30 transition-all duration-300 group h-full flex flex-col md:hover:-translate-y-2 relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" aria-hidden="true" />
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img 
                       src={tour.image} 
                       alt={tour.name} 
-                      className="w-full max-w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
+                      className="w-full max-w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-110"
                       referrerPolicy="no-referrer"
                       loading={index < 4 ? "eager" : "lazy"}
                       fetchPriority={index < 4 ? "high" : "auto"}
@@ -50,10 +50,10 @@ export default function PopularTours() {
                   </div>
                   
                   <div className="p-6 flex-1 flex flex-col relative z-10">
-                    <h3 className="text-2xl font-serif font-bold text-primary mb-3 group-hover:text-accent transition-colors">{tour.name}</h3>
+                    <h3 className="text-2xl font-serif font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">{tour.name}</h3>
                     
                     <div className="mb-6">
-                      <span className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Rs. {tour.price}</span>
+                      <span className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">Rs. {tour.price}</span>
                       <span className="text-sm text-gray-600">/Person</span>
                     </div>
                     
@@ -61,7 +61,7 @@ export default function PopularTours() {
                       <Link 
                         to="/contact" 
                         aria-label={`Enquire about ${tour.name} tour`}
-                        className="w-full py-4 rounded-2xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-3 hover:bg-accent transition-all duration-500 shadow-xl shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
+                        className="w-full py-4 rounded-2xl bg-primary text-white font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-3 hover:bg-accent transition-all duration-300 shadow-xl shadow-primary/20 hover:shadow-accent/30 active:scale-95 group/btn"
                       >
                         Enquire Now <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover/btn:translate-x-1" />
                       </Link>

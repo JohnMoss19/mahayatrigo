@@ -65,7 +65,7 @@ export default function DestinationsGrid() {
               watchSlidesProgress={true}
               lazyPreloadPrevNext={2}
               coverflowEffect={{
-                rotate: 35,
+                rotate: 20,
                 stretch: 0,
                 depth: 100,
                 modifier: 1,
@@ -153,10 +153,10 @@ export default function DestinationsGrid() {
 
             {/* Custom Navigation Buttons */}
             <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between items-center px-4 md:px-10 pointer-events-none z-30">
-              <button className="swiper-button-prev-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 md:backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl -translate-x-2 md:-translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
+              <button className="swiper-button-prev-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300 shadow-2xl -translate-x-2 md:-translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
                 <ChevronLeft size={24} />
               </button>
-              <button className="swiper-button-next-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 md:backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl translate-x-2 md:translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
+              <button className="swiper-button-next-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-300 shadow-2xl translate-x-2 md:translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
                 <ChevronRight size={24} />
               </button>
             </div>
