@@ -56,7 +56,7 @@ export default function PackageTabs() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {domesticPackages.map((pkg, index) => (
                 <FadeIn key={pkg.id} delay={index * 0.1}>
-                  <PackageCard pkg={pkg} />
+                  <PackageCard pkg={pkg} isPriority={index < 3} />
                 </FadeIn>
               ))}
             </div>
@@ -92,7 +92,7 @@ export default function PackageTabs() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {internationalPackages.map((pkg, index) => (
                 <FadeIn key={pkg.id} delay={index * 0.1}>
-                  <PackageCard pkg={pkg} />
+                  <PackageCard pkg={pkg} isPriority={false} />
                 </FadeIn>
               ))}
             </div>
@@ -103,7 +103,7 @@ export default function PackageTabs() {
   );
 }
 
-const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
+const PackageCard: React.FC<{ pkg: TourPackage; isPriority?: boolean }> = ({ pkg, isPriority = false }) => {
   return (
     <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] md:hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700 md:hover:-translate-y-2 md:hover:scale-[1.02] flex flex-col h-full border border-gray-100/50">
       {/* Image Section */}
@@ -113,7 +113,8 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
           alt={pkg.name} 
           className="w-full max-w-full h-full object-cover transition-transform duration-1000 md:group-hover:scale-110"
           referrerPolicy="no-referrer"
-          loading="lazy"
+          loading={isPriority ? "eager" : "lazy"}
+          fetchPriority={isPriority ? "high" : "auto"}
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />

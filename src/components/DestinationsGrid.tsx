@@ -112,7 +112,8 @@ export default function DestinationsGrid() {
                           alt={dest.name} 
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110"
                           referrerPolicy="no-referrer"
-                          loading="lazy"
+                          loading={index < 3 ? "eager" : "lazy"}
+                          fetchPriority={index < 3 ? "high" : "auto"}
                           decoding="async"
                         />
                         

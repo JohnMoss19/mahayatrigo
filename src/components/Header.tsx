@@ -169,10 +169,10 @@ export default function Header({ onAuthClick }: HeaderProps) {
             className="fixed inset-0 z-[60] lg:hidden bg-[#0a0a0a] flex flex-col transform-gpu"
           >
             {/* Background Accents */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity" />
-              <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15" />
-              <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15" />
+              <div className="absolute top-[-15%] right-[-15%] w-[80%] h-[80%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15" />
+              <div className="absolute bottom-[-15%] left-[-15%] w-[80%] h-[80%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15" />
             </div>
 
             {/* Header */}

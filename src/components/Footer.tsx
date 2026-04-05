@@ -237,7 +237,7 @@ export default function Footer() {
             <span className="text-gray-400 text-[10px] font-bold uppercase tracking-[0.2em]">WE ACCEPT</span>
             <span className="text-white/90 text-sm font-serif italic">Secure Checkout</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-1.5 md:gap-2">
             {[
               { name: 'Visa', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Visa_Inc._logo_%282021%E2%80%93present%29.svg' },
               { name: 'Mastercard', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg' },
@@ -248,13 +248,13 @@ export default function Footer() {
             ].map((payment) => (
               <div 
                 key={payment.name} 
-                className="bg-white px-2.5 py-1 rounded-lg h-8 flex items-center justify-center shadow-md shadow-black/10 md:hover:-translate-y-0.5 transition-all duration-500 group cursor-default"
+                className="bg-white px-1.5 md:px-2.5 py-0.5 md:py-1 rounded-md md:rounded-lg h-6 md:h-8 flex items-center justify-center shadow-md shadow-black/10 md:hover:-translate-y-0.5 transition-all duration-500 group cursor-default"
                 title={payment.name}
               >
                 <img 
                   src={payment.logo} 
                   alt={payment.name} 
-                  className="h-3.5 w-auto object-contain transition-all duration-500"
+                  className="h-2.5 md:h-3.5 w-auto object-contain transition-all duration-500"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                   decoding="async"

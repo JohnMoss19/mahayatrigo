@@ -43,7 +43,8 @@ export default function PopularTours() {
                       alt={tour.name} 
                       className="w-full max-w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                       referrerPolicy="no-referrer"
-                      loading="lazy"
+                      loading={index < 4 ? "eager" : "lazy"}
+                      fetchPriority={index < 4 ? "high" : "auto"}
                       decoding="async"
                     />
                   </div>

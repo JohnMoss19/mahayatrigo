@@ -7,12 +7,21 @@ import BackToTop from './components/BackToTop';
 import LoadingSpinner from './components/LoadingSpinner';
 import FloatingIcons from './components/FloatingIcons';
 
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/AboutPage'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 export default function App() {
-  // const [showAuth, setShowAuth] = useState(false);
+  // Preload other pages after Home is mounted
+  React.useEffect(() => {
+    const preloadPages = () => {
+      import('./pages/AboutPage');
+      import('./pages/Contact');
+    };
+    // Delay preloading to prioritize Home page resources
+    const timer = setTimeout(preloadPages, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -33,13 +42,25 @@ export default function App() {
       <div className="min-h-screen flex flex-col relative">
         <Header />
         <main className="flex-grow relative">
-          <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><LoadingSpinner text="Loading page..." /></div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route 
+              path="/about" 
+              element={
+                <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><LoadingSpinner text="Loading About..." /></div>}>
+                  <About />
+                </Suspense>
+              } 
+            />
+            <Route 
+              path="/contact" 
+              element={
+                <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><LoadingSpinner text="Loading Contact..." /></div>}>
+                  <Contact />
+                </Suspense>
+              } 
+            />
+          </Routes>
         </main>
         <Footer />
         <BackToTop />
