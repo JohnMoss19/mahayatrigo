@@ -9,9 +9,14 @@ export default function Hero() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const containerRef = useRef<HTMLElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -19,17 +24,10 @@ export default function Hero() {
     offset: ["start start", "end start"]
   });
 
-  // Smooth out the scroll progress
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  // Parallax transforms
-  const backgroundY = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
-  const contentY = useTransform(smoothProgress, [0, 1], ["0%", "60%"]);
-  const contentOpacity = useTransform(smoothProgress, [0, 0.5], [1, 0]);
+  // Parallax transforms - disabled on mobile, direct mapping for performance
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "30%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "60%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, isMobile ? 1 : 0]);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -58,7 +56,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 will-change-[opacity]"
+          className="absolute inset-0"
         >
           {/* Background Image with Slow Zoom and Parallax */}
           <motion.div 
@@ -67,7 +65,7 @@ export default function Hero() {
               backgroundImage: `url(${HERO_SLIDES[current].image})`,
               y: backgroundY
             }}
-            initial={{ scale: 1.1 }}
+            initial={{ scale: isMobile ? 1 : 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, ease: "easeOut" }}
           >
@@ -81,7 +79,7 @@ export default function Hero() {
       {/* Content Container - Centered Modern Layout with Parallax */}
       <motion.div 
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12 will-change-[transform,opacity] transform-gpu"
+        className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white z-10 pt-20 landscape:pt-12 transform-gpu"
       >
         <AnimatePresence mode="wait">
           <motion.div

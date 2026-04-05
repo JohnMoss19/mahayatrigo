@@ -15,7 +15,7 @@ export default function AboutSection() {
             <div className="relative z-10">
               <FadeIn direction="right" className="rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.3)] border-8 border-white">
                 <img 
-                  src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=75&fm=webp" 
                   alt="Taj Mahal" 
                   className="w-full max-w-full aspect-[4/5] object-cover md:hover:scale-105 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
@@ -26,7 +26,7 @@ export default function AboutSection() {
               
               <FadeIn direction="up" delay={0.4} className="absolute -bottom-8 -right-6 w-3/5 rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.25)] border-8 border-white z-20">
                 <img 
-                  src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" 
+                  src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=75&fm=webp" 
                   alt="Goa Beach" 
                   className="w-full max-w-full aspect-square object-cover md:hover:scale-110 transition-transform duration-1000"
                   referrerPolicy="no-referrer"

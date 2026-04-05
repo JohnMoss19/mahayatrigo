@@ -17,15 +17,15 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-      {/* Dynamic Animated Background */}
-      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-bg via-accent/5 to-bg md:animate-gradient overflow-hidden">
+      {/* Dynamic Animated Background - Optimized for performance */}
+      <div className="fixed inset-0 -z-50 bg-gradient-to-br from-bg via-accent/5 to-bg overflow-hidden">
         <div className="absolute inset-0 bg-pattern opacity-10"></div>
         
-        {/* Floating Orbs */}
-        <div className="absolute top-[10%] left-[5%] w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob will-change-transform"></div>
-        <div className="absolute top-[20%] right-[10%] w-80 h-80 bg-accent/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob animation-delay-2000 will-change-transform"></div>
-        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-96 h-96 bg-primary/10 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-4000 will-change-transform"></div>
-        <div className="absolute bottom-[20%] right-[5%] w-72 h-72 bg-accent/10 rounded-full mix-blend-multiply filter blur-[40px] md:blur-[80px] animate-blob will-change-transform"></div>
+        {/* Floating Orbs - Static for performance */}
+        <div className="hidden md:block absolute top-[10%] left-[5%] w-72 h-72 bg-primary/10 rounded-full filter blur-[80px] transform-gpu"></div>
+        <div className="hidden md:block absolute top-[20%] right-[10%] w-80 h-80 bg-accent/10 rounded-full filter blur-[80px] transform-gpu"></div>
+        <div className="hidden md:block absolute bottom-[10%] left-[20%] w-96 h-96 bg-primary/10 rounded-full filter blur-[100px] transform-gpu"></div>
+        <div className="hidden md:block absolute bottom-[20%] right-[5%] w-72 h-72 bg-accent/10 rounded-full filter blur-[80px] transform-gpu"></div>
       </div>
       
       <FloatingIcons />

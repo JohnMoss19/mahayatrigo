@@ -25,17 +25,17 @@ export default function DestinationsGrid() {
     <section className="py-16 lg:py-20 bg-transparent relative overflow-hidden">
       {/* Dynamic Mesh Gradient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        {/* Animated Blobs */}
-        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[60px] md:blur-[120px] animate-blob opacity-60 will-change-transform" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[60px] md:blur-[120px] animate-blob animation-delay-2000 opacity-60 will-change-transform" />
-        <div className="absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[50px] md:blur-[100px] animate-blob animation-delay-4000 opacity-40 will-change-transform" />
-        <div className="absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[50px] md:blur-[100px] animate-blob animation-delay-2000 opacity-40 will-change-transform" />
+        {/* Animated Blobs - Hidden on mobile for performance, static on desktop */}
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[120px] opacity-60 transform-gpu" />
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[120px] opacity-60 transform-gpu" />
+        <div className="hidden md:block absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[100px] opacity-40 transform-gpu" />
+        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px] opacity-40 transform-gpu" />
         
         {/* Subtle Mesh Pattern Overlay */}
         <div className="absolute inset-0 bg-pattern opacity-[0.02]" />
         
-        {/* Shifting Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-accent/[0.02] animate-gradient bg-[length:200%_200%]" />
+        {/* Shifting Gradient Overlay - Static for performance */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-accent/[0.02] bg-[length:200%_200%]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -100,10 +100,10 @@ export default function DestinationsGrid() {
               className="pb-16 pt-16 lg:pb-20 lg:pt-20 !overflow-visible"
             >
               {destinations.map((dest, index) => (
-                <SwiperSlide key={`${dest.id}-${index}`} className="h-auto px-4 will-change-transform">
+                <SwiperSlide key={`${dest.id}-${index}`} className="h-auto px-4">
                   {({ isActive }) => (
                     <div 
-                      className={`h-full transition-all duration-700 transform-gpu ${isActive ? 'scale-110 z-20' : 'scale-90 blur-[4px] md:blur-[6px]'}`}
+                      className={`h-full transition-all duration-500 transform-gpu ${isActive ? 'scale-105 md:scale-110 z-20 opacity-100' : 'scale-95 md:scale-90 opacity-70 md:opacity-50'}`}
                     >
                       <div className="relative h-[400px] sm:h-[450px] md:h-[480px] lg:h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl group/card border border-white/20">
                         {/* Background Image */}

@@ -22,57 +22,48 @@ export default function AboutPage() {
             <div className="w-full lg:w-1/2 relative h-[400px] sm:h-[600px] lg:h-[800px]">
               {/* Top Left Image */}
               <FadeIn direction="right" className="absolute top-0 left-0 w-[55%] lg:w-[60%] z-10">
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  style={{ willChange: 'transform' }}
+                <div
                   className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=75&fm=webp" 
                     alt="Mountain Lake" 
                     className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                     decoding="async"
                   />
-                </motion.div>
+                </div>
               </FadeIn>
               {/* Middle Right Image */}
               <FadeIn direction="up" delay={0.3} className="absolute top-[15%] lg:top-[20%] right-0 w-[55%] lg:w-[60%] z-20">
-                <motion.div
-                  animate={{ y: [0, 15, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  style={{ willChange: 'transform' }}
+                <div
                   className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=75&fm=webp" 
                     alt="Group Hiking" 
                     className="w-full max-w-full aspect-[3/4] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                     decoding="async"
                   />
-                </motion.div>
+                </div>
               </FadeIn>
               {/* Bottom Left Image */}
               <FadeIn direction="down" delay={0.6} className="absolute bottom-0 left-[10%] w-[60%] lg:w-[65%] z-30">
-                <motion.div
-                  animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  style={{ willChange: 'transform' }}
+                <div
                   className="rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white transform-gpu"
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" 
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=75&fm=webp" 
                     alt="Tropical Beach" 
                     className="w-full max-w-full aspect-[16/9] object-cover hover:scale-110 transition-transform duration-1000"
                     referrerPolicy="no-referrer"
                     fetchPriority="high"
                     decoding="async"
                   />
-                </motion.div>
+                </div>
               </FadeIn>
             </div>
 

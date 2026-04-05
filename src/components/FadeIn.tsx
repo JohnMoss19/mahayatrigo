@@ -24,7 +24,6 @@ export default function FadeIn({ children, delay = 0, direction = 'up', classNam
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
-      style={{ willChange: 'opacity, transform' }}
       {...props}
     >
       {children}
