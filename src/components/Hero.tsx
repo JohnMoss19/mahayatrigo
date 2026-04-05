@@ -94,7 +94,7 @@ export default function Hero() {
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="inline-block px-6 py-2 rounded-full bg-black/40 backdrop-blur-md border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
+              className="inline-block px-6 py-2 rounded-full bg-black/40 border border-accent/30 text-accent text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-6 md:mb-8"
             >
               Experience the Extraordinary
             </motion.span>
@@ -136,7 +136,7 @@ export default function Hero() {
 
               <Link 
                 to="/about" 
-                className="px-6 py-3 md:px-7 md:py-3.5 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-500 hover:-translate-y-1 active:scale-95 flex items-center justify-center backdrop-blur-md w-full sm:w-auto"
+                className="px-6 py-3 md:px-7 md:py-3.5 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-white/10 transition-all duration-500 hover:-translate-y-1 active:scale-95 flex items-center justify-center w-full sm:w-auto"
               >
                 Discover More
               </Link>
@@ -189,14 +189,14 @@ export default function Hero() {
         <div className="flex gap-2 order-3 w-full md:w-auto justify-center md:justify-end hidden md:flex">
           <button 
             onClick={() => { prev(); setIsAutoPlaying(false); }}
-            className="p-3 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white/50 hover:bg-black/40 hover:text-white transition-all duration-500 active:scale-90"
+            className="p-3 rounded-full bg-black/20 border border-white/10 text-white/50 hover:bg-black/40 hover:text-white transition-all duration-500 active:scale-90"
             aria-label="Previous Slide"
           >
             <ChevronLeft size={18} />
           </button>
           <button 
             onClick={() => { next(); setIsAutoPlaying(false); }}
-            className="p-3 rounded-full bg-black/20 backdrop-blur-md border border-white/10 text-white/50 hover:bg-black/40 hover:text-white transition-all duration-500 active:scale-90"
+            className="p-3 rounded-full bg-black/20 border border-white/10 text-white/50 hover:bg-black/40 hover:text-white transition-all duration-500 active:scale-90"
             aria-label="Next Slide"
           >
             <ChevronRight size={18} />

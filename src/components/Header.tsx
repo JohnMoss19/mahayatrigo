@@ -26,6 +26,21 @@ export default function Header({ onAuthClick }: HeaderProps) {
     setIsMenuOpen(false);
   }, [location]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      const hash = href.replace('/', '');
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', hash);
+        }
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Domestic Tours', href: '/#domestic' },
@@ -46,25 +61,31 @@ export default function Header({ onAuthClick }: HeaderProps) {
     <>
       <header 
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 flex justify-center ${
-          isScrolled ? 'pt-2 md:pt-4' : 'pt-4 md:pt-6'
+          isScrolled ? 'pt-1 md:pt-2' : 'pt-4 md:pt-6'
         } px-2 md:px-4`}
       >
-        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 py-2 md:px-6 md:py-3 transform-gpu ${
+        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 md:px-6 transform-gpu ${
           isScrolled 
-            ? 'bg-white/70 backdrop-blur-lg md:backdrop-blur-2xl shadow-xl border border-white/30 w-full max-w-6xl' 
-            : 'bg-transparent w-full max-w-7xl'
+            ? 'bg-white/90 md:backdrop-blur-xl shadow-xl border border-white/30 w-full max-w-6xl py-1.5 md:py-2' 
+            : 'bg-transparent w-full max-w-7xl py-2 md:py-3'
         }`}>
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0" aria-label="MAHA YatriGo Home">
             <div className="relative flex-shrink-0">
-              <Logo isScrolled={!isLightText} className="h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14 transition-transform duration-500 group-hover:rotate-[360deg]" />
+              <Logo isScrolled={!isLightText} className={`transition-all duration-500 group-hover:rotate-[360deg] ${
+                isScrolled ? 'h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10' : 'h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14'
+              }`} />
               <div className="absolute -inset-1 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className={`text-lg sm:text-xl md:text-3xl font-serif font-bold tracking-tight leading-none transition-colors duration-500 ${!isLightText ? 'text-primary' : 'text-white'}`}>
+              <span className={`font-serif font-bold tracking-tight leading-none transition-all duration-500 ${
+                isScrolled ? 'text-base sm:text-lg md:text-2xl' : 'text-lg sm:text-xl md:text-3xl'
+              } ${!isLightText ? 'text-primary' : 'text-white'}`}>
                 MAHA <span className="text-accent">YatriGo</span>
               </span>
-              <span className={`text-[7px] sm:text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold mt-0.5 md:mt-1 transition-colors duration-500 ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
+              <span className={`uppercase tracking-[0.2em] font-bold mt-0.5 transition-all duration-500 ${
+                isScrolled ? 'text-[6px] sm:text-[7px] md:text-[8px]' : 'text-[7px] sm:text-[8px] md:text-[10px]'
+              } ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
                 Journeys of Faith & Wonder
               </span>
             </div>
@@ -77,6 +98,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
                 {link.href.startsWith('/#') ? (
                   <a
                     href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className={`text-xs uppercase tracking-[0.15em] font-bold transition-all duration-500 hover:text-accent ${
                       !isLightText ? 'text-primary/80' : 'text-white/90'
                     }`}
@@ -86,6 +108,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
                 ) : (
                   <Link
                     to={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     aria-current={isActive(link.href) ? 'page' : undefined}
                     className={`text-xs uppercase tracking-[0.15em] font-bold transition-all duration-500 hover:text-accent ${
                       isActive(link.href) ? 'text-accent' : !isLightText ? 'text-primary/80' : 'text-white/90'
@@ -131,89 +154,104 @@ export default function Header({ onAuthClick }: HeaderProps) {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
-              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setIsMenuOpen(false)}
-              className="fixed inset-0 bg-primary/80 z-[60] lg:hidden"
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white/90 backdrop-blur-2xl shadow-2xl z-[70] flex flex-col lg:hidden border-l border-white/20"
-            >
-              <div className="p-8 flex items-center justify-between border-b border-gray-200/50">
-                <Link to="/" className="flex items-center gap-3" aria-label="MAHA YatriGo Home">
-                  <Logo isScrolled={true} className="h-10 w-10" />
-                  <div className="flex flex-col">
-                    <span className="text-xl font-serif font-bold text-primary leading-none">MAHA <span className="text-accent">YatriGo</span></span>
-                    <span className="text-[8px] uppercase tracking-[0.2em] font-bold mt-1 text-gray-500">Journeys of Faith & Wonder</span>
-                  </div>
-                </Link>
-                <button 
-                  onClick={() => setIsMenuOpen(false)}
-                  aria-label="Close Menu"
-                  className="p-2 text-gray-500 hover:text-accent transition-colors bg-gray-100 rounded-full"
-                >
-                  <X size={20} />
-                </button>
-              </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[60] lg:hidden bg-[#0a0a0a] flex flex-col transform-gpu"
+          >
+            {/* Background Accents */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity" />
+              <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15 animate-blob" />
+              <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15 animate-blob animation-delay-2000" />
+            </div>
 
-              <div className="flex-1 overflow-y-auto p-8 flex flex-col gap-8">
-                <div className="space-y-6">
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 + i * 0.1, duration: 0.4, ease: "easeOut" }}
-                    >
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-6 relative z-10">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3" aria-label="MAHA YatriGo Home">
+                <Logo isScrolled={true} className="h-10 w-10 text-white" />
+                <div className="flex flex-col">
+                  <span className="text-xl font-serif font-bold text-white leading-none">MAHA <span className="text-accent">YatriGo</span></span>
+                  <span className="text-[8px] uppercase tracking-[0.2em] font-bold mt-1 text-gray-400">Journeys of Faith & Wonder</span>
+                </div>
+              </Link>
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Close Menu"
+                className="p-3 text-white/70 hover:text-white bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 active:scale-95"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex-1 flex flex-col justify-center px-8 relative z-10">
+              <div className="space-y-8">
+                {navLinks.map((link, i) => {
+                  const active = isActive(link.href);
+                  return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ delay: 0.1 + i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    {link.href.startsWith('/#') ? (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={`flex items-center gap-4 text-3xl sm:text-4xl font-serif font-bold transition-all duration-300 active:scale-95 origin-left ${active ? 'text-accent' : 'text-white/70 active:text-white'}`}
+                      >
+                        <span className={`h-[2px] transition-all duration-500 ease-out ${active ? 'w-8 bg-accent' : 'w-0 bg-transparent'}`} />
+                        <span>{link.name}</span>
+                      </a>
+                    ) : (
                       <Link
                         to={link.href}
-                        aria-current={isActive(link.href) ? 'page' : undefined}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`text-2xl font-serif font-bold transition-colors block ${
-                          isActive(link.href) ? 'text-accent' : 'text-primary hover:text-accent'
-                        }`}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className={`flex items-center gap-4 text-3xl sm:text-4xl font-serif font-bold transition-all duration-300 active:scale-95 origin-left ${active ? 'text-accent' : 'text-white/70 active:text-white'}`}
                       >
-                        {link.name}
+                        <span className={`h-[2px] transition-all duration-500 ease-out ${active ? 'w-8 bg-accent' : 'w-0 bg-transparent'}`} />
+                        <span>{link.name}</span>
                       </Link>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.4 }}
-                  className="pt-8 border-t border-gray-200/50 space-y-6 mt-auto"
-                >
-                  <a 
-                    href="tel:+919876543210" 
-                    aria-label="Call Us Today"
-                    className="flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-accent text-white py-4 rounded-2xl font-bold shadow-xl shadow-accent/20 active:scale-95 transition-transform"
-                  >
-                    <Phone size={20} aria-hidden="true" />
-                    Call Us Today
-                  </a>
-                </motion.div>
+                    )}
+                  </motion.div>
+                )})}
               </div>
+            </div>
 
-              <div className="p-8 bg-gray-100/50">
-                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500 mb-4">Follow Our Journey</p>
-                <div className="flex gap-4">
-                  {['Instagram', 'Facebook', 'WhatsApp'].map((social) => (
-                    <span key={social} className="text-xs font-bold text-primary/60 hover:text-accent cursor-pointer transition-colors">{social}</span>
-                  ))}
+            {/* Footer Actions */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="px-8 pb-12 relative z-10"
+            >
+              <div className="w-full h-px bg-white/10 mb-8" />
+              <div className="flex flex-col gap-6">
+                <a 
+                  href="tel:+919876543210" 
+                  className="flex items-center justify-center gap-3 w-full bg-accent hover:bg-orange-600 text-white py-4 rounded-full font-bold uppercase tracking-widest text-sm transition-colors"
+                >
+                  <Phone size={18} />
+                  Call Us Today
+                </a>
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/40">Follow Us</span>
+                  <div className="flex gap-6">
+                    {['Instagram', 'Facebook', 'WhatsApp'].map((social) => (
+                      <span key={social} className="text-xs font-bold text-white/60 hover:text-accent cursor-pointer transition-colors">{social}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </>

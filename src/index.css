@@ -86,8 +86,7 @@
     @apply border border-primary/30 text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-500 active:scale-95;
   }
   .glass-card {
-    @apply bg-white/60 border border-white/20 shadow-2xl;
-    @apply md:bg-white/40 md:backdrop-blur-xl;
+    @apply bg-white/90 border border-white/20 shadow-2xl;
   }
   .section-title {
     font-size: clamp(2rem, 4vw + 1rem, 4rem);

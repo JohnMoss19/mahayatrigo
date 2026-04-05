@@ -120,7 +120,7 @@ const PackageCard: React.FC<{ pkg: TourPackage }> = ({ pkg }) => {
         
         {/* Floating Badge */}
         {pkg.tag && (
-          <div className="absolute top-4 right-4 bg-white/95 md:backdrop-blur-md px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 z-20" aria-label={`${pkg.tag} Package`}>
+          <div className="absolute top-4 right-4 bg-white/95 px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 z-20" aria-label={`${pkg.tag} Package`}>
             <Star size={12} aria-hidden="true" className="text-accent fill-accent" />
             <span className="text-[9px] font-bold uppercase tracking-widest text-primary">{pkg.tag}</span>
           </div>

@@ -19,12 +19,26 @@ export default function Footer() {
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      const hash = href.replace('/', '');
+      if (window.location.pathname === '/') {
+        e.preventDefault();
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', hash);
+        }
+      }
+    }
+  };
+
   return (
     <footer className="bg-primary text-white pt-32 pb-12 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 -translate-y-1/2 translate-x-1/3 animate-blob" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,1)_0%,transparent_70%)] opacity-5 translate-y-1/2 -translate-x-1/3 animate-blob animation-delay-2000" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -41,7 +55,7 @@ export default function Footer() {
             </div>
             <div className="w-full max-w-md">
               {isSubscribed ? (
-                <div className="bg-accent/10 border border-accent/20 rounded-3xl p-6 text-center animate-in fade-in zoom-in duration-500 backdrop-blur-md">
+                <div className="bg-accent/10 border border-accent/20 rounded-3xl p-6 text-center animate-in fade-in zoom-in duration-500">
                   <p className="text-accent font-bold">Thank you for subscribing!</p>
                   <p className="text-gray-300 text-sm mt-1">You'll receive our next update soon.</p>
                 </div>
@@ -53,7 +67,7 @@ export default function Footer() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Your Email Address" 
-                      className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-14 pr-6 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all duration-300 backdrop-blur-md"
+                      className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-14 pr-6 text-white placeholder:text-gray-400 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all duration-300"
                       required
                     />
                     <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-accent pointer-events-none" size={18} />
@@ -99,7 +113,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${social.label}`}
-                  className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center md:hover:bg-accent md:hover:text-white md:hover:-translate-y-2 transition-all duration-500 border border-white/10 backdrop-blur-sm group/social"
+                  className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center md:hover:bg-accent md:hover:text-white md:hover:-translate-y-2 transition-all duration-500 border border-white/10 group/social"
                 >
                   <social.icon size={20} aria-hidden="true" className="transition-transform duration-500 group-hover/social:scale-110" />
                 </a>
@@ -121,7 +135,15 @@ export default function Footer() {
                 { name: 'Contact Us', href: '/contact' }
               ].map((link) => (
                 <li key={link.name}>
-                  {link.href.startsWith('/') && !link.href.includes('#') ? (
+                  {link.href.startsWith('/#') ? (
+                    <a 
+                      href={link.href} 
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="text-gray-300 hover:text-accent flex items-center gap-2 transition-all duration-500 group text-sm font-medium uppercase tracking-widest"
+                    >
+                      <ChevronRight size={14} className="transition-transform md:group-hover:translate-x-1 text-accent/50" /> {link.name}
+                    </a>
+                  ) : link.href.startsWith('/') ? (
                     <Link 
                       to={link.href}
                       className="text-gray-300 hover:text-accent flex items-center gap-2 transition-all duration-500 group text-sm font-medium uppercase tracking-widest"
@@ -148,7 +170,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-8">
               <li className="flex items-start gap-5 group">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10 backdrop-blur-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10">
                   <MapPin size={18} />
                 </div>
                 <div className="text-gray-300 text-sm leading-relaxed font-medium">
@@ -156,7 +178,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-5 group">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10 backdrop-blur-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10">
                   <Phone size={18} aria-hidden="true" />
                 </div>
                 <div className="text-gray-300 text-sm space-y-2 font-medium">
@@ -165,7 +187,7 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-5 group">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10 backdrop-blur-sm">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-white/10">
                   <Mail size={18} aria-hidden="true" />
                 </div>
                 <div className="text-gray-300 text-sm space-y-2 font-medium">
@@ -181,7 +203,7 @@ export default function Footer() {
               <span className="w-8 h-px bg-accent"></span> Partnership
             </h4>
             {strategicPartner && (
-              <div className="relative p-8 rounded-3xl bg-white/5 border border-white/10 md:hover:border-accent/30 transition-all duration-700 group overflow-hidden backdrop-blur-sm">
+              <div className="relative p-8 rounded-3xl bg-white/5 border border-white/10 md:hover:border-accent/30 transition-all duration-700 group overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-20 md:group-hover:opacity-100 transition-opacity duration-700">
                   <ArrowUpRight size={20} className="text-accent" />
                 </div>

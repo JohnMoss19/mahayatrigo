@@ -26,10 +26,10 @@ export default function DestinationsGrid() {
       {/* Dynamic Mesh Gradient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {/* Animated Blobs - Hidden on mobile for performance, static on desktop */}
-        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full bg-accent/10 blur-[120px] opacity-60 transform-gpu" />
-        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] rounded-full bg-primary/10 blur-[120px] opacity-60 transform-gpu" />
-        <div className="hidden md:block absolute top-[20%] right-[10%] w-[50%] h-[50%] rounded-full bg-accent/5 blur-[100px] opacity-40 transform-gpu" />
-        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[100px] opacity-40 transform-gpu" />
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 animate-blob transform-gpu" />
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 animate-blob animation-delay-2000 transform-gpu" />
+        <div className="hidden md:block absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 animate-blob animation-delay-4000 transform-gpu" />
+        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-10 animate-blob transform-gpu" />
         
         {/* Subtle Mesh Pattern Overlay */}
         <div className="absolute inset-0 bg-pattern opacity-[0.02]" />
@@ -131,7 +131,7 @@ export default function DestinationsGrid() {
 
                             <Link 
                               to="/contact" 
-                              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white font-bold uppercase tracking-widest text-xs hover:bg-accent hover:border-accent transition-all duration-300 group/btn"
+                              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 border border-white/20 rounded-full text-white font-bold uppercase tracking-widest text-xs hover:bg-accent hover:border-accent transition-all duration-300 group/btn"
                             >
                               Enquire Now 
                               <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
@@ -140,7 +140,7 @@ export default function DestinationsGrid() {
                         </div>
 
                         {/* Premium Badge */}
-                        <div className="absolute top-6 right-6 px-4 py-1 bg-accent/90 backdrop-blur-md rounded-full text-[10px] font-bold text-white uppercase tracking-[0.2em] shadow-lg">
+                        <div className="absolute top-6 right-6 px-4 py-1 bg-accent/90 rounded-full text-[10px] font-bold text-white uppercase tracking-[0.2em] shadow-lg">
                           Exclusive
                         </div>
                       </div>
@@ -152,10 +152,10 @@ export default function DestinationsGrid() {
 
             {/* Custom Navigation Buttons */}
             <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between items-center px-4 md:px-10 pointer-events-none z-30">
-              <button className="swiper-button-prev-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl -translate-x-2 md:-translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
+              <button className="swiper-button-prev-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 md:backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl -translate-x-2 md:-translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
                 <ChevronLeft size={24} />
               </button>
-              <button className="swiper-button-next-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl translate-x-2 md:translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
+              <button className="swiper-button-next-custom pointer-events-auto w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 md:backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-accent hover:border-accent transition-all duration-500 shadow-2xl translate-x-2 md:translate-x-4 opacity-0 group-hover/swiper:opacity-100 group-hover/swiper:translate-x-0">
                 <ChevronRight size={24} />
               </button>
             </div>

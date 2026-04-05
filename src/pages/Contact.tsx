@@ -46,8 +46,8 @@ export default function Contact() {
     <div className="pt-32 pb-24 bg-transparent min-h-screen relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 -translate-y-1/2 translate-x-1/3 animate-blob" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-10 translate-y-1/3 -translate-x-1/3 animate-blob animation-delay-2000" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
@@ -130,88 +130,88 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <FadeIn direction="left" delay={0.4}>
-              <div className="glass-card p-10 md:p-16 relative overflow-hidden">
+              <div className="glass-card p-6 md:p-10 relative overflow-hidden rounded-3xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-bl-full -z-10" />
                 
-                <h3 className="text-fluid-h3 font-serif font-bold text-primary mb-10 flex items-center gap-4">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-8 flex items-center gap-4">
                   <span className="w-10 h-px bg-accent"></span> Send us a Message
                 </h3>
                 
-                <form className="space-y-8" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">First Name</label>
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">First Name</label>
                       <input 
                         type="text" 
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
-                        className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                         placeholder="John"
                         required
                       />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Last Name</label>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">Last Name</label>
                       <input 
                         type="text" 
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
-                        className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                         placeholder="Doe"
                         required
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">Email Address</label>
                       <input 
                         type="email" 
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                         placeholder="john@example.com"
                         required
                       />
                     </div>
-                    <div className="space-y-3">
-                      <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Phone Number</label>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">Phone Number</label>
                       <input 
                         type="tel" 
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                        className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                         placeholder="+91 98765 43210"
                         required
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Subject</label>
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">Subject</label>
                     <input 
                       type="text" 
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                       placeholder="How can we help you?"
                     />
                   </div>
 
-                  <div className="space-y-3">
-                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Message</label>
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-bold text-gray-600 uppercase tracking-widest ml-1">Message</label>
                     <textarea 
-                      rows={5}
+                      rows={4}
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-8 py-5 rounded-2xl border border-gray-100 focus:ring-4 focus:ring-accent/10 focus:border-accent outline-none transition-all resize-none bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-300"
+                      className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/20 focus:border-accent outline-none transition-all resize-none bg-gray-50/50 focus:bg-white font-medium text-primary placeholder:text-gray-400 text-sm"
                       placeholder="Write your message here..."
                       required
                     ></textarea>
