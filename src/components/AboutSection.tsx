@@ -46,8 +46,8 @@ export default function AboutSection() {
             </div>
             
             {/* Decorative Background Elements */}
-            <div className="absolute top-1/2 -left-20 w-64 h-64 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 -z-10 animate-blob" />
-            <div className="absolute -bottom-20 right-0 w-80 h-80 bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 -z-10 animate-blob animation-delay-2000" />
+            <div className="absolute top-1/2 -left-20 w-64 h-64 bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 -z-10" />
+            <div className="absolute -bottom-20 right-0 w-80 h-80 bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 -z-10" />
           </div>
 
           {/* Right: Content */}

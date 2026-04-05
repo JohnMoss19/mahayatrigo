@@ -37,8 +37,8 @@ export default function Footer() {
     <footer className="bg-primary text-white pt-32 pb-12 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 -translate-y-1/2 translate-x-1/3 animate-blob" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,1)_0%,transparent_70%)] opacity-5 translate-y-1/2 -translate-x-1/3 animate-blob animation-delay-2000" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,255,255,1)_0%,transparent_70%)] opacity-5 translate-y-1/2 -translate-x-1/3" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">

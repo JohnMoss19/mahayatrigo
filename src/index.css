@@ -16,13 +16,6 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  --animate-blob: blob 10s infinite;
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1) translateZ(0); }
-    33% { transform: translate(30px, -50px) scale(1.1) translateZ(0); }
-    66% { transform: translate(-20px, 20px) scale(0.9) translateZ(0); }
-    100% { transform: translate(0px, 0px) scale(1) translateZ(0); }
-  }
 }
 
 @layer base {

@@ -14,10 +14,17 @@ export default function Header({ onAuthClick }: HeaderProps) {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -60,13 +67,13 @@ export default function Header({ onAuthClick }: HeaderProps) {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 flex justify-center ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex justify-center ${
           isScrolled ? 'pt-1 md:pt-2' : 'pt-4 md:pt-6'
         } px-2 md:px-4`}
       >
-        <div className={`flex items-center justify-between transition-all duration-700 rounded-full px-4 md:px-6 transform-gpu ${
+        <div className={`flex items-center justify-between transition-all duration-300 rounded-full px-4 md:px-6 transform-gpu ${
           isScrolled 
-            ? 'bg-white/90 md:backdrop-blur-xl shadow-xl border border-white/30 w-full max-w-6xl py-1.5 md:py-2' 
+            ? 'bg-white/95 shadow-xl border border-white/30 w-full max-w-6xl py-1.5 md:py-2' 
             : 'bg-transparent w-full max-w-7xl py-2 md:py-3'
         }`}>
           {/* Logo Section */}
@@ -164,8 +171,8 @@ export default function Header({ onAuthClick }: HeaderProps) {
             {/* Background Accents */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519817650390-64a93db51149?q=80&w=800&auto=format&fit=crop')] bg-cover bg-center opacity-[0.03] mix-blend-luminosity" />
-              <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15 animate-blob" />
-              <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15 animate-blob animation-delay-2000" />
+              <div className="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-15" />
+              <div className="absolute bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-15" />
             </div>
 
             {/* Header */}

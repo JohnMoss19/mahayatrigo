@@ -26,10 +26,10 @@ export default function DestinationsGrid() {
       {/* Dynamic Mesh Gradient Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {/* Animated Blobs - Hidden on mobile for performance, static on desktop */}
-        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 animate-blob transform-gpu" />
-        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 animate-blob animation-delay-2000 transform-gpu" />
-        <div className="hidden md:block absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 animate-blob animation-delay-4000 transform-gpu" />
-        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-10 animate-blob transform-gpu" />
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-20 transform-gpu" />
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[70%] h-[70%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-20 transform-gpu" />
+        <div className="hidden md:block absolute top-[20%] right-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-accent)_0%,transparent_70%)] opacity-10 transform-gpu" />
+        <div className="hidden md:block absolute bottom-[20%] left-[10%] w-[50%] h-[50%] bg-[radial-gradient(circle,var(--color-primary)_0%,transparent_70%)] opacity-10 transform-gpu" />
         
         {/* Subtle Mesh Pattern Overlay */}
         <div className="absolute inset-0 bg-pattern opacity-[0.02]" />
