@@ -80,18 +80,18 @@ export default function Header({ onAuthClick }: HeaderProps) {
           <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0" aria-label="MAHA YatriGo Home">
             <div className="relative flex-shrink-0">
               <Logo isScrolled={!isLightText} className={`transition-all duration-500 group-hover:rotate-[360deg] ${
-                isScrolled ? 'h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10' : 'h-8 w-8 sm:h-10 sm:w-10 md:h-14 md:w-14'
+                isScrolled ? 'h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10' : 'h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14'
               }`} />
               <div className="absolute -inset-1 bg-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col justify-center">
               <span className={`font-serif font-bold tracking-tight leading-none transition-all duration-500 ${
-                isScrolled ? 'text-base sm:text-lg md:text-2xl' : 'text-lg sm:text-xl md:text-3xl'
+                isScrolled ? 'text-lg sm:text-xl md:text-2xl' : 'text-2xl sm:text-2xl md:text-3xl'
               } ${!isLightText ? 'text-primary' : 'text-white'}`}>
                 MAHA <span className="text-accent">YatriGo</span>
               </span>
               <span className={`uppercase tracking-[0.2em] font-bold mt-0.5 transition-all duration-500 ${
-                isScrolled ? 'text-[6px] sm:text-[7px] md:text-[8px]' : 'text-[7px] sm:text-[8px] md:text-[10px]'
+                isScrolled ? 'text-[7px] sm:text-[8px] md:text-[8px]' : 'text-[8px] sm:text-[9px] md:text-[10px]'
               } ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
                 Journeys of Faith & Wonder
               </span>
@@ -176,10 +176,10 @@ export default function Header({ onAuthClick }: HeaderProps) {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-6 relative z-10">
               <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3" aria-label="MAHA YatriGo Home">
-                <Logo isScrolled={true} className="h-10 w-10 text-white" />
+                <Logo isScrolled={true} className="h-12 w-12 text-white" />
                 <div className="flex flex-col">
-                  <span className="text-xl font-serif font-bold text-white leading-none">MAHA <span className="text-accent">YatriGo</span></span>
-                  <span className="text-[8px] uppercase tracking-[0.2em] font-bold mt-1 text-gray-400">Journeys of Faith & Wonder</span>
+                  <span className="text-2xl font-serif font-bold text-white leading-none">MAHA <span className="text-accent">YatriGo</span></span>
+                  <span className="text-[9px] uppercase tracking-[0.2em] font-bold mt-1 text-gray-400">Journeys of Faith & Wonder</span>
                 </div>
               </Link>
               <button 
