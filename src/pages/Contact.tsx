@@ -70,14 +70,14 @@ export default function Contact() {
                     <span className="w-8 h-px bg-accent"></span> Information
                   </h3>
                   
-                  <div className="space-y-10">
-                    <div className="flex items-start gap-6 group">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-accent/10 shadow-sm">
-                        <MapPin size={24} />
+                  <div className="space-y-8">
+                    <div className="flex items-start gap-5 group">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-accent/10 shadow-sm">
+                        <MapPin size={20} />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Office Address</h4>
-                        <p className="text-primary font-medium leading-relaxed">
+                        <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Office Address</h4>
+                        <p className="text-primary font-medium leading-relaxed text-sm">
                           Office No. 102, Silver Plaza,<br />
                           Mira Road (East), Mumbai,<br />
                           Maharashtra 401107
@@ -85,26 +85,26 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-6 group">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-primary/10 shadow-sm">
-                        <Phone size={24} />
+                    <div className="flex items-start gap-5 group">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 border border-primary/10 shadow-sm">
+                        <Phone size={20} />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Phone Number</h4>
-                        <div className="text-primary font-medium space-y-1">
+                        <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Phone Number</h4>
+                        <div className="text-primary font-medium space-y-1 text-sm">
                           <p className="hover:text-accent transition-colors cursor-pointer">+91 98765 43210</p>
                           <p className="hover:text-accent transition-colors cursor-pointer">+91 91234 56789</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-6 group">
-                      <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-accent/10 shadow-sm">
-                        <Mail size={24} />
+                    <div className="flex items-start gap-5 group">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 border border-accent/10 shadow-sm">
+                        <Mail size={20} />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Email Address</h4>
-                        <div className="text-primary font-medium space-y-1">
+                        <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</h4>
+                        <div className="text-primary font-medium space-y-1 text-sm">
                           <p className="hover:text-accent transition-colors cursor-pointer">bookings@mahayatrigo.com</p>
                         </div>
                       </div>
@@ -112,14 +112,14 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="p-10 rounded-[2.5rem] bg-primary text-white relative overflow-hidden group shadow-2xl">
-                  <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-100 transition-opacity duration-700">
-                    <Clock size={40} className="text-accent" />
+                <div className="p-6 md:p-8 rounded-[2rem] bg-primary text-white relative overflow-hidden group shadow-2xl">
+                  <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity duration-700">
+                    <Clock size={32} className="text-accent" />
                   </div>
-                  <h4 className="text-xl font-serif font-bold mb-6">Working Hours</h4>
-                  <ul className="space-y-4 text-sm font-light text-gray-300">
-                    <li className="flex justify-between items-center border-b border-white/10 pb-3"><span>Mon - Fri:</span> <span className="text-white font-medium">09:00 AM - 06:00 PM</span></li>
-                    <li className="flex justify-between items-center border-b border-white/10 pb-3"><span>Saturday:</span> <span className="text-white font-medium">10:00 AM - 04:00 PM</span></li>
+                  <h4 className="text-lg font-serif font-bold mb-5">Working Hours</h4>
+                  <ul className="space-y-3.5 text-xs md:text-sm font-light text-gray-300">
+                    <li className="flex justify-between items-center border-b border-white/10 pb-2.5"><span>Mon - Fri:</span> <span className="text-white font-medium">09:00 AM - 06:00 PM</span></li>
+                    <li className="flex justify-between items-center border-b border-white/10 pb-2.5"><span>Saturday:</span> <span className="text-white font-medium">10:00 AM - 04:00 PM</span></li>
                     <li className="flex justify-between items-center"><span>Sunday:</span> <span className="text-accent font-bold">Closed</span></li>
                   </ul>
                 </div>

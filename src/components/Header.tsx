@@ -18,7 +18,11 @@ export default function Header({ onAuthClick }: HeaderProps) {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
+          const scrolled = window.scrollY > 20;
+          setIsScrolled((prev) => {
+            if (prev !== scrolled) return scrolled;
+            return prev;
+          });
           ticking = false;
         });
         ticking = true;
@@ -67,32 +71,32 @@ export default function Header({ onAuthClick }: HeaderProps) {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 flex justify-center ${
+        className={`fixed top-0 left-0 w-full z-50 transition-[padding] duration-500 ease-out flex justify-center ${
           isScrolled ? 'pt-1 md:pt-2' : 'pt-4 md:pt-6'
-        } px-2 md:px-4`}
+        } px-2 md:px-4 will-change-[padding]`}
       >
-        <div className={`flex items-center justify-between transition-all duration-300 rounded-full px-4 md:px-6 transform-gpu ${
+        <div className={`flex items-center justify-between transition-[padding,background-color,border-color,box-shadow] duration-500 ease-out rounded-full transform-gpu will-change-[padding,background-color] w-full max-w-7xl ${
           isScrolled 
-            ? 'bg-white/95 shadow-xl border border-white/30 w-full max-w-6xl py-1.5 md:py-2' 
-            : 'bg-transparent w-full max-w-7xl py-2 md:py-3'
+            ? 'bg-white/95 shadow-xl border border-white/30 py-1.5 md:py-2 px-8 md:px-16' 
+            : 'bg-transparent py-2 md:py-3 px-4 md:px-6'
         }`}>
           {/* Logo Section */}
           <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0" aria-label="MAHA YatriGo Home">
             <div className="relative flex-shrink-0">
-              <Logo isScrolled={!isLightText} className={`transition-all duration-500 group-hover:rotate-[360deg] ${
-                isScrolled ? 'h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10' : 'h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14'
-              }`} />
+              <Logo isScrolled={!isLightText} className={`transition-transform duration-500 group-hover:rotate-[360deg] ${
+                isScrolled ? 'scale-75 md:scale-90' : 'scale-100'
+              } origin-center h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14`} />
               <div className="absolute -inset-1 bg-accent/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className={`font-serif font-bold tracking-tight leading-none transition-all duration-500 ${
-                isScrolled ? 'text-lg sm:text-xl md:text-2xl' : 'text-2xl sm:text-2xl md:text-3xl'
-              } ${!isLightText ? 'text-primary' : 'text-white'}`}>
+              <span className={`font-serif font-bold tracking-tight leading-none transition-[color,transform] duration-500 ${
+                isScrolled ? 'text-lg sm:text-xl md:text-2xl -translate-y-0.5' : 'text-2xl sm:text-2xl md:text-3xl'
+              } ${!isLightText ? 'text-primary' : 'text-white'} origin-left`}>
                 MAHA <span className="text-accent">YatriGo</span>
               </span>
-              <span className={`uppercase tracking-[0.2em] font-bold mt-0.5 transition-all duration-500 ${
-                isScrolled ? 'text-[7px] sm:text-[8px] md:text-[8px]' : 'text-[8px] sm:text-[9px] md:text-[10px]'
-              } ${!isLightText ? 'text-gray-600' : 'text-gray-300'}`}>
+              <span className={`uppercase tracking-[0.2em] font-bold mt-0.5 transition-[color,transform] duration-500 ${
+                isScrolled ? 'text-[7px] sm:text-[8px] md:text-[8px] scale-90' : 'text-[8px] sm:text-[9px] md:text-[10px]'
+              } ${!isLightText ? 'text-gray-600' : 'text-gray-300'} origin-left`}>
                 Journeys of Faith & Wonder
               </span>
             </div>
@@ -106,7 +110,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-xs uppercase tracking-[0.15em] font-bold transition-all duration-500 hover:text-accent ${
+                    className={`text-xs uppercase tracking-[0.15em] font-bold transition-colors duration-500 hover:text-accent ${
                       !isLightText ? 'text-primary/80' : 'text-white/90'
                     }`}
                   >
@@ -117,14 +121,14 @@ export default function Header({ onAuthClick }: HeaderProps) {
                     to={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
                     aria-current={isActive(link.href) ? 'page' : undefined}
-                    className={`text-xs uppercase tracking-[0.15em] font-bold transition-all duration-500 hover:text-accent ${
+                    className={`text-xs uppercase tracking-[0.15em] font-bold transition-colors duration-500 hover:text-accent ${
                       isActive(link.href) ? 'text-accent' : !isLightText ? 'text-primary/80' : 'text-white/90'
                     }`}
                   >
                     {link.name}
                   </Link>
                 )}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-all duration-500 ${
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-accent transition-[width] duration-500 ${
                   isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </div>
@@ -136,7 +140,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
             <a 
               href="tel:+919876543210" 
               aria-label="Call Now"
-              className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-all duration-500 shadow-lg shadow-primary/10 hover:shadow-accent/20 hover:-translate-y-0.5"
+              className="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-accent transition-[background-color,transform,shadow] duration-500 shadow-lg shadow-primary/10 hover:shadow-accent/20 hover:-translate-y-0.5"
             >
               <Phone size={14} aria-hidden="true" />
               <span>Call Now</span>
@@ -144,7 +148,7 @@ export default function Header({ onAuthClick }: HeaderProps) {
 
             {/* Mobile Menu Toggle */}
             <button 
-              className={`lg:hidden p-2 md:p-2.5 rounded-full transition-all duration-500 flex items-center justify-center ${
+              className={`lg:hidden p-2 md:p-2.5 rounded-full transition-[background-color,color] duration-500 flex items-center justify-center ${
                 !isLightText ? 'bg-primary/5 text-primary' : 'bg-white/10 text-white'
               }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
